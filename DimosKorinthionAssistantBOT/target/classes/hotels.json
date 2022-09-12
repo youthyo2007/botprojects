@@ -1,0 +1,48 @@
+[
+    {
+      "HotelId": "1",
+      "HotelName": "Secret Point Hotel",
+      "Description": "This classic hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
+      "Description_fr": "Cet hôtel classique est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
+      "Description_gr": "Αυτό το κλασικό ξενοδοχείο βρίσκεται σε ιδανική τοποθεσία στην κύρια εμπορική αρτηρία της πόλης, στην καρδιά της Νέας Υόρκης. Λίγα λεπτά μακριά βρίσκεται η Time's Square και το ιστορικό κέντρο της πόλης, καθώς και άλλα σημεία ενδιαφέροντος που κάνουν τη Νέα Υόρκη μια από τις πιο ελκυστικές και κοσμοπολίτικες πόλεις της Αμερικής.",
+      "Category": "Boutique",
+      "Tags": [ "view", "air conditioning", "concierge" ],
+      "ParkingIncluded": false,
+      "LastRenovationDate": "2017-01-18T00:00:00Z",
+      "Rating": 3.60,
+      "Address": {
+        "StreetAddress": "677 5th Ave",
+        "City": "New York",
+        "StateProvince": "NY",
+        "PostalCode": "10022",
+        "Country": "USA"
+      },
+      "Location": {
+        "type": "Point",
+        "coordinates": [ -73.975403, 40.760586 ]
+      }
+    },
+    {
+        "HotelId": "2",
+        "HotelName": "Country Home",
+        "Description": "Save up to 50% off traditional hotels. Free WiFi, great location near downtown, full kitchen, washer & dryer, 24\/7 support, bowling alley, fitness center and more.",
+        "Description_fr": "Économisez jusqu'à 50% sur les hôtels traditionnels. WiFi gratuit, très bien situé près du centre-ville, cuisine complète, laveuse & sécheuse, support 24\/7, bowling, centre de fitness et plus encore.",
+        "Description_gr": "Εξοικονομήστε έως και 50% έκπτωση σε παραδοσιακά ξενοδοχεία. Δωρεάν WiFi, εξαιρετική τοποθεσία κοντά στο κέντρο της πόλης, πλήρως εξοπλισμένη κουζίνα, πλυντήριο και στεγνωτήριο, υποστήριξη 24/7, αίθουσα μπόουλινγκ, γυμναστήριο και πολλά άλλα.",
+        "Category": "Extended-Stay",
+        "Tags": [ "24-hour front desk service", "laundry service", "free wifi" ],
+        "ParkingIncluded": true,
+        "LastRenovationDate": "2009-09-06T00:00:00Z",
+        "Rating": 2.70,
+        "Address": {
+          "StreetAddress": "6910 Fayetteville Rd",
+          "City": "Durham",
+          "StateProvince": "NC",
+          "PostalCode": "27713",
+          "Country": "USA"
+        },
+        "Location": {
+          "type": "Point",
+          "coordinates": [ -78.940483, 35.904160 ]
+        }
+    }
+]
