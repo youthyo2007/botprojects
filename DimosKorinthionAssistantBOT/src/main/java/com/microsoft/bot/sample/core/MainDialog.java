@@ -12,6 +12,9 @@ import com.microsoft.bot.dialogs.WaterfallStep;
 import com.microsoft.bot.dialogs.WaterfallStepContext;
 import com.microsoft.bot.dialogs.prompts.PromptOptions;
 import com.microsoft.bot.dialogs.prompts.TextPrompt;
+import com.microsoft.bot.sample.data.model.Department;
+import com.microsoft.bot.sample.data.repository.DepartmentRepository;
+import com.microsoft.bot.sample.data.services.DepartmentService;
 import com.microsoft.bot.schema.Activity;
 import com.microsoft.bot.schema.InputHints;
 import com.microsoft.recognizers.datatypes.timex.expression.TimexProperty;
@@ -25,6 +28,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * The class containing the main dialog for the sample.
@@ -32,7 +36,13 @@ import org.apache.commons.lang3.StringUtils;
 public class MainDialog extends ComponentDialog {
 
     private final FlightBookingRecognizer luisRecognizer;
+    private DepartmentService departmentService;
     private final Integer plusDayValue = 7;
+    
+
+
+
+
 
     /**
      * The constructor of the Main Dialog class.
@@ -40,10 +50,11 @@ public class MainDialog extends ComponentDialog {
      * @param withLuisRecognizer The FlightBookingRecognizer object.
      * @param bookingDialog      The BookingDialog object with booking dialogs.
      */
-    public MainDialog(FlightBookingRecognizer withLuisRecognizer, BookingDialog bookingDialog) {
+    public MainDialog(FlightBookingRecognizer withLuisRecognizer, DepartmentService departmentService, BookingDialog bookingDialog) {
         super("MainDialog");
 
-        luisRecognizer = withLuisRecognizer;
+        this.luisRecognizer = withLuisRecognizer;
+        this.departmentService = departmentService;
 
         addDialog(new TextPrompt("TextPrompt"));
         addDialog(bookingDialog);
@@ -134,6 +145,18 @@ public class MainDialog extends ComponentDialog {
                     // We haven't implemented the GetWeatherDialog so we just display a TODO message.
                      // Extract the values for the composite entities from the LUIS result.
                     ObjectNode findPlaceEntities = luisRecognizer.getFindPlaceEntities(luisResult);
+
+
+                    try {
+                        
+                        if(departmentService==null)
+                            System.out.println("is null");
+                            
+                        List<Department> departmentList = departmentService.getItemsList();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                  
 
 
                     String FindPlacerMessageText = "TODO: Places_FindPlace flow here";

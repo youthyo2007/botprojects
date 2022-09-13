@@ -1,0 +1,55 @@
+[
+    {
+      "DeptId": "1",
+      "DeptName": "Κεντρικό Πρωτόκολλο Δήμου Κορινθίων",
+      "Description": "Central Protocol of the Municipality of Corinthia",
+      "Description_fr": "-",
+      "Description_gr": "Κεντρικό Πρωτόκολλο Δήμου Κορινθίων",
+      "Category": "Department",
+      "Tags": [ "protocol", "protocolo department city hall","protocol department town hall","central protocol"],
+      "ParkingIncluded": false,
+      "LastRenovationDate": "2017-01-18T00:00:00Z",
+      "Address": {
+        "StreetAddress": "Κολιάτσου 32",
+        "City": "Κόρινθος",
+        "PostalCode": "20100",
+        "Country": "GR"
+      },
+      "Contact": {
+        "phone1": "2741061000",
+        "phone2": "2741061001",
+        "email": "protocol@korinthos.gr"
+      },
+      "Location": {
+        "type": "Point",
+        "coordinates": [ -73.975403, 40.760586 ]
+      }
+    },
+    {
+      "DeptId": "2",
+      "DeptName": "Πρωτόκολλο Τεχνικών Υπηρεσιών Δήμου Κορινθίων",
+      "Description": "Protocol of Technical Services of the Municipality of Corinthia",
+      "Description_fr": "-",
+      "Description_gr": "Πρωτόκολλο Τεχνικών Υπηρεσιών Δήμου Κορινθίων",
+      "Category": "Department",
+      "Tags": [ "protocol", "protocol technical services","protocol department technical services"],
+      "ParkingIncluded": false,
+      "LastRenovationDate": "2017-01-18T00:00:00Z",
+      "Address": {
+        "StreetAddress": "Δημοκρατίας 1",
+        "City": "Κόρινθος",
+        "PostalCode": "20131",
+        "Country": "GR"
+      },
+      "Contact": {
+        "phone1": "2741062000",
+        "phone2": "2741062001",
+        "email": "protocol-technical@korinthos.gr"
+      },
+      "Location": {
+        "type": "Point",
+        "coordinates": [ -73.975403, 40.760586 ]
+      }
+    }
+ 
+]

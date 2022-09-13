@@ -3,6 +3,14 @@
 
 package com.microsoft.bot.sample.core;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+
 import com.microsoft.bot.builder.Bot;
 import com.microsoft.bot.builder.ConversationState;
 import com.microsoft.bot.builder.UserState;
@@ -11,15 +19,15 @@ import com.microsoft.bot.integration.BotFrameworkHttpAdapter;
 import com.microsoft.bot.integration.Configuration;
 import com.microsoft.bot.integration.spring.BotController;
 import com.microsoft.bot.integration.spring.BotDependencyConfiguration;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Import;
+import com.microsoft.bot.sample.data.services.DepartmentService;
 
 /**
  * This is the starting point of the Sprint Boot Bot application.
  */
 @SpringBootApplication
+@EnableMongoRepositories(basePackages = "com.microsoft.bot.sample.data.repository")
+ @ComponentScan(basePackages = "com.microsoft.bot.sample.data.services")
+
 
 // Use the default BotController to receive incoming Channel messages. A custom
 // controller could be used by eliminating this import and creating a new
@@ -33,8 +41,15 @@ import org.springframework.context.annotation.Import;
  * implementations for a Bot application.  The Application class should
  * override methods in order to provide custom implementations.
  */
+
 public class Application extends BotDependencyConfiguration {
 
+
+
+    @Autowired
+    DepartmentService departmentService;
+    
+    
     /**
      * The start method.
      *
@@ -61,7 +76,7 @@ public class Application extends BotDependencyConfiguration {
         ConversationState conversationState
     ) {
         FlightBookingRecognizer recognizer =  new FlightBookingRecognizer(configuration);
-        MainDialog dialog = new MainDialog(recognizer, new BookingDialog());
+        MainDialog dialog = new MainDialog(recognizer, departmentService,  new BookingDialog());
         return new DialogAndWelcomeBot<>(conversationState, userState, dialog);
     }
 
