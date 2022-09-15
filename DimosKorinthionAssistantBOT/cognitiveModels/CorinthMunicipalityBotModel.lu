@@ -1,0 +1,296 @@
+
+> LUIS application information
+> !# @app.name = CorinthMunicipalityBotModel
+> !# @app.desc = Luis Model for Municipality of Corinthia 
+> !# @app.versionId = 0.1
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 7.0.0
+> !# @app.tokenizerVersion = 1.0.0
+
+
+> # Intent definitions
+
+# Cancel
+- bye
+- cancel booking
+- exit
+- ignore
+
+
+# None
+- winter is coming
+
+
+> !# @intent.inherits = name : Places.FindPlace; domain_name : Places; model_name : FindPlace
+
+# Places.FindPlace
+- {@Places.Cuisine=barbecue} {@Places.PlaceType=restaurant} closest to my location
+- {@Places.Rating=best} {@Places.Cuisine=souvlaki} near {@Places.AbsoluteLocation=corinth city center}
+- {@Places.Rating=best} {@Places.Cuisine=brunch} near me
+- {@Places.Rating=best} {@Places.Cuisine=gyro} {@Places.PlaceType=restaurants} near me
+- {@Places.Rating=best} {@Places.Cuisine=steakhouse} {@Places.PlaceType=restaurant} in {@Places.AbsoluteLocation=agionori}
+- {@Places.Rating=best} lunch in {@Places.AbsoluteLocation=xiliomodi}
+- {@Places.Rating=best} lunch {@Places.PlaceType=restaurant} in {@Places.AbsoluteLocation= lexaio}
+- {@Places.Rating=best} {@Places.Cuisine=mexican} {@Places.Product=food} in {@Places.AbsoluteLocation=corinth}
+- {@Places.Rating=best} nearby {@Places.PlaceType=restaurants}
+- {@Places.Cuisine=breakfast} {@Places.PlaceType=cafes} nearby
+- {@Places.Cuisine=brunch} {@Places.PlaceType=restaurants} in {@Places.AbsoluteLocation=corinth}
+- {@Places.Cuisine=greek} {@Places.PlaceType=restaurant} {@Places.AbsoluteLocation=Almyri}
+- {@Places.PlaceType=KEP} in {@Places.AbsoluteLocation=Sofiko}
+- find a {@Places.PlaceType=kep} in my area
+- find {@Places.PlaceType=restaurants} in my location
+- find {@Places.PlaceType=police office} in a 5 mile radius
+- find {@Places.PlaceType=musuems}
+- find {@Places.PlaceType=hotels} in {@Places.AbsoluteLocation=corinth}
+- find  {@Places.Cuisine=fish} {@Places.PlaceType=taverns} in my area
+- find {@Places.PlaceType=coffee shops} on {@Places.AbsoluteLocation=Athikia}
+- find {@Places.PlaceName=george city cafe} in {@Places.AbsoluteLocation=Almyri}
+- find {@Places.PlaceType=museums} near me
+- find {@Places.PlaceType=taverns} in this area
+- find some {@Places.Product=gas} near me
+- find some {@Places.Rating=good} {@Places.PlaceType=coffee shop} nearby
+- find some {@Places.Rating=good} {@Places.PlaceType=restaurants} in {@Places.AbsoluteLocation=kalamia beach}
+- find some nearby {@Places.PriceRange=cheap} {@Places.PlaceType=restaurants}
+- find some nearby {@Places.PlaceType=churches}
+- find some {@Places.PlaceType=KEP} near me
+- find some {@Places.PlaceType=citizen service centers} nearby
+- find the closest {@Places.Cuisine=greek} {@Places.PlaceType=restaurant} that {@Places.Amenities=allows pets}
+- find the closest open {@Places.PlaceName=Open Care Centers for the Elderly}
+- find the nearest {@Places.PlaceName=KEP}
+- find the nearest open {@Places.Product=steak} place
+- find the nearest {@Places.PlaceName=public library}
+- {@Places.Rating=five star} {@Places.Cuisine=fish} {@Places.PlaceType=restaurants} near {@Places.AbsoluteLocation=kalamia beach}
+- {@Places.Rating=good} {@Places.PlaceType=restaurants} near here
+- is there a {@Places.PlaceType=hospital} near me
+- is there an {@Places.PlaceType=art museum} in {@Places.AbsoluteLocation=city center}
+- is there any nearby {@Places.PlaceType=malls}
+- is there any {@Places.PlaceName=pizza house} near here
+- is there any {@Places.PlaceType=post office} within 1 km?
+- is there any {@Places.PlaceType=restaurant} in my area
+- {@Places.Cuisine=ribs} {@Places.PlaceType=restaurant} {@Places.AbsoluteLocation=xiliomodi}
+- list {@Places.Rating=five star} {@Places.PlaceType=restaurants} in {@Places.AbsoluteLocation=kalamia beach}
+- list {@Places.Rating=four star} {@Places.PlaceType=restaurants} nearby
+- list of {@Places.PlaceType=restaurants} places near me
+- list of the {@Places.Rating=best} {@Places.PlaceType=ancient sights} in {@Places.AbsoluteLocation=ancient corinth}
+- list the {@Places.PlaceType=malls} in {@Places.AbsoluteLocation=korinthos}
+- list the {@Places.Rating=top} 3 closest {@Places.PlaceType=museums} near {@Places.AbsoluteLocation=city center}
+- list the {@Places.Rating=top} 3 {@Places.PlaceType=cinemas} in {@Places.AbsoluteLocation=town}
+- local {@Places.PlaceType=bars} near me
+- local {@Places.PlaceType=taverns} that are open now
+- local {@Places.PlaceType=coffee shops}
+- local {@Places.Cuisine=fish} {@Places.PlaceType=restaurants}
+- local {@Places.PlaceType=pubs} in this area
+- locate nearby {@Places.PlaceType=churches}
+- locate {@Places.AbsoluteLocation=corinth} {@Places.PlaceName=urban planning department}
+- {@Places.PlaceType=petrol stations} near me
+- {@Places.Product=fish} nearby
+- {@Places.Product=pizza} on {@Places.AbsoluteLocation=lexaio}
+- {@Places.Cuisine=steak} {@Places.PlaceType=restaurants} open on sundays
+- what's the {@Places.PriceRange=cheapest} {@Places.Cuisine=italian} {@Places.PlaceType=restaurant} around me
+- what's the closest {@Places.PlaceType=church} that is open now
+- what's the closest {@Places.PlaceType=museum} to me
+- what's the closest {@Places.PlaceType=village} to {@Places.AbsoluteLocation=corinth}
+- what's the closest place for {@Places.Product=steaks}
+- what's the closest place to get {@Places.Product=pizza}
+- what's the closest {@Places.PlaceType=KEP} in my area
+- what's the nearest {@Places.PlaceName=Open Care Center} next to me
+- what's the nearest {@Places.PlaceType=shopping mall} in {@Places.AbsoluteLocation=corinth}
+- what's the nearest {@Places.PlaceType=theater} near me
+- where are {@Places.PlaceType=museums} nearby
+- where are {@Places.PlaceType=beaches} in {@Places.AbsoluteLocation=Almyri}
+- where are {@Places.PlaceType=ancient sights} near me
+- where can i find {@Places.PlaceName=city hall}
+- where can i get a {@Places.PriceRange=cheap} {@Places.Product=greek salad}
+- where can i get a {@Places.Product=fish} dinner in {@Places.AbsoluteLocation=Almyri}
+- where can i get a {@Places.Product=gyro} nearby
+- where can i get {@Places.PriceRange=cheap} {@Places.Product=steak} in {@Places.AbsoluteLocation=Stefani}
+- where is {@Places.PriceRange=cheap} {@Places.Product=gyro}
+- where is {@Places.PriceRange=cheap} {@Places.PlaceType=steakhouse} near me
+- where is {@Places.Rating=good} for {@Places.Product=gyro} around here
+- where is {@Places.PlaceType=parking} at {@Places.AbsoluteLocation=corinth} {@Places.PlaceName=city center}
+- where is the {@Places.PlaceName=city hall}
+- where is the {@Places.PlaceName=technical services department}
+
+
+
+> !# @intent.inherits = name : Places.GetAddress; domain_name : Places; model_name : GetAddress
+
+
+
+# Places.GetAddress
+- address {@Places.PlaceName=city hall}
+- address for {@Places.AbsoluteLocation=corinth} {@Places.PlaceName=urban planning}
+- address for {@Places.PlaceName=KEP} on {@Places.AbsoluteLocation=corinth}
+- address for {@Places.PlaceName=department of finance} {@Places.AbsoluteLocation=city center}
+- address for {@Places.AbsoluteLocation=corinth} {@Places.PlaceName=hospital}
+- address for {@Places.PlaceType=museum} in {@Places.AbsoluteLocation=corinth}
+- address for {@Places.AbsoluteLocation=corinth} {@Places.PlaceName=technical projects and studies department}
+- address for local {@Places.PlaceName=KEP}
+- address for {@Places.PlaceName=social welfare municipality department}
+- address for the {@Places.PlaceName=citizen service center} on {@Places.AbsoluteLocation=xiliomodi}
+- address {@Places.PlaceName=waste and recycling management department} {@Places.AbsoluteLocation=corinth}
+- address of {@Places.PlaceName=supplies and services department} in {@Places.AbsoluteLocation=corinthos}
+- address {@Places.PlaceName=social welfare department}
+- address to {@Places.PlaceName=urban planning department} {@Places.AbsoluteLocation=corinth}
+- address to the {@Places.PlaceName=revenue and municipal property department}
+- address to {@Places.PlaceName=city hall}
+- {@Places.PlaceName=technical services protocol} address
+- {@Places.AbsoluteLocation=corinth} {@Places.PlaceName=green department} address
+- {@Places.PlaceName=town hall} address
+- {@Places.PlaceName=department of clininless and recycling} address
+- {@Places.PlaceName= mayors office} in {@Places.AbsoluteLocation=corinth} address
+- find address for {@Places.PlaceName=mayors office} 
+- find address for {@Places.PlaceName=department of education and lifelong learning} in {@Places.AbsoluteLocation=corinth}
+- find the address for {@Places.PlaceName=finance directorate services}
+- find the address for the {@Places.PlaceName=KAPI} in {@Places.AbsoluteLocation=Almyri}
+- find the address for {@Places.PlaceName=Apostle Paul Church} {@Places.AbsoluteLocation=coritnh}
+- find the address to {@Places.PlaceName=human management and resources department}
+- {@Places.PlaceName=social protection department} in {@Places.AbsoluteLocation=corinth} address
+- i need the address for {@Places.PlaceName=city hall} {@Places.AbsoluteLocation=corinth}
+- i need the address for the nearest {@Places.PlaceName=KEP}
+- i need the address for {@Places.PlaceName=Open Care Centers for the Elderly}
+- {@Places.PlaceName=city hall} address
+- {@Places.PlaceName=municipal water supply and sewerage company} address
+- {@Places.PlaceName=citizen service center} {@Places.AbsoluteLocation=baths of beautiful Helen} address
+- the address for {@Places.PlaceName=Open Care Centers for the Elderly} in {@Places.AbsoluteLocation=corinth}
+- the address for {@Places.PlaceName=revenue department} {@Places.AbsoluteLocation=corinth}
+- the address for {@Places.PlaceName=city hall}
+- the address for {@Places.PlaceName=Apostle Paul Church} in {@Places.AbsoluteLocation=corinth}
+- the address for the {@Places.PlaceName= welfare community center}
+- the address for the {@Places.PlaceName=department of trade and services} in {@Places.AbsoluteLocation=corinth}
+- the address for the {@Places.PlaceName=legality control department of constructions}
+- the address of the {@Places.PlaceName=garbage collection services} in {@Places.AbsoluteLocation=corinth}
+- the address of the {@Places.PlaceName=public library} on {@Places.AbsoluteLocation=corinth}
+- the address of the {@Places.PlaceName=department of clininless and recycling} on {@Places.AbsoluteLocation=corinth}
+- the address of the {@Places.PlaceName=waste and recycling management department} in {@Places.AbsoluteLocation=lexaio}
+- the address to {@Places.PlaceName=revenue and municipal property department} {@Places.AbsoluteLocation=corinth}
+- the address to {@Places.PlaceName=department of culture and sports}
+- the address to {@Places.PlaceName=department of environment and civil protection} in {@Places.AbsoluteLocation=corinth}
+- the address to {@Places.PlaceName=ancient theater} in {@Places.AbsoluteLocation=xiliomodi}
+- the address to {@Places.PlaceName=technical projects and studies department}
+- the address to the {@Places.PlaceName=technical services department} in {@Places.AbsoluteLocation=korinthos}
+- the {@Places.PlaceName=supplies and services department} {@Places.AbsoluteLocation=coritnh} address
+- {@Places.PlaceName=city hall protocol} {@Places.AbsoluteLocation=corinth} address
+- what is the address for {@Places.PlaceName=department of environment and quality of life} on {@Places.AbsoluteLocation=corinth}
+- what is the address for {@Places.PlaceName=city hall}
+- what is the address for the nearest {@Places.PlaceType=Open Care Center}
+- what is the address for {@Places.PlaceName=city hall}
+- what is the address of {@Places.PlaceName=1st high school}
+- what is the address of the {@Places.PlaceName=Vasilias Vasilios} {@Places.PlaceType=tavern} in {@Places.AbsoluteLocation=agionori}
+- what is the address to {@Places.PlaceName=Number One: All Day Food}
+- what is the address to the closest {@Places.PlaceType=pharmacy}
+- what s the address for the {@Places.PlaceName=Corinth Archaeological} {@Places.PlaceType=museum}
+- what s the address of {@Places.PlaceName=Observatory} in {@Places.AbsoluteLocation=Stefani}
+- what s the address of the {@Places.PlaceName=Ecclesiastical Museum}
+- what s the address of the {@Places.AbsoluteLocation=corinth} {@Places.PlaceType=railway station}
+- what's the address for the {@Places.PlaceName=city hall} in {@Places.AbsoluteLocation=corinth}
+- what's the address of the {@Places.PlaceType=technical services protocol} in {@Places.AbsoluteLocation=corinth}
+
+
+> !# @intent.inherits = name : Places.GetPhoneNumber; domain_name : Places; model_name : GetPhoneNumber
+
+# Places.GetPhoneNumber
+- a {@Places.PlaceName=city hall} in {@Places.AbsoluteLocation=corinth} phone number
+- a telephone number for {@Places.PlaceName=department of environment and civil protection} in {@Places.AbsoluteLocation=korinthos}
+- a telephone number for {@Places.PlaceName=department of environment and quality of life}
+- {@Places.PlaceName=KEP} on {@Places.AbsoluteLocation=kato assos} phone number
+- can i get the number for {@Places.PlaceName=revenue and municipal property department} {@Places.AbsoluteLocation=korinthos}
+- can i get the number to {@Places.PlaceName=technical services protocol} on {@Places.AbsoluteLocation=dimokratias 1}
+- can i get the phone number for {@Places.PlaceName=mayors office}
+- can i get the phone number for {@Places.PlaceName=garbage collection services} in {@Places.AbsoluteLocation=corinth}
+- can i have the number for {@Places.PlaceName=department of culture and sports} in {@Places.PlaceName=city hall}
+- can i have the number for {@Places.PlaceName=register office} {@Places.AbsoluteLocation=Stefani}
+- can i have the number for {@Places.PlaceName=department of trade and services}
+- can i have the telephone number for {@Places.PlaceName=technical services protocol} in {@Places.AbsoluteLocation=corinth}
+- contact number for {@Places.PlaceName=revenue and municipal property department}
+- do you have the phone number for {@Places.PlaceName=finance directorate services}
+- find {@Places.PlaceName=legality control department of constructions} phone number in {@Places.AbsoluteLocation=corinth}
+- find {@Places.PlaceName=human management and resources department} in {@Places.AbsoluteLocation=municipality of corinthia} phone number
+- find number for {@Places.PlaceName=town hall protocol} in {@Places.AbsoluteLocation=corinth}
+- find number for {@Places.PlaceName=department of trade and services} on {@Places.AbsoluteLocation=corinth}
+- find phone number for {@Places.PlaceName=corinth hospital}
+- find phone number for {@Places.PlaceName=city planning department} in {@Places.AbsoluteLocation=corinth}
+- find telephone number for {@Places.PlaceName=department of culture and sports}
+- find the number for {@Places.PlaceName=directorate of local development}
+- find the number for the {@Places.PlaceName=department of expenses}
+- find the number to {@Places.AbsoluteLocation=corinth} {@Places.PlaceName=department of environment and quality of life}
+- find the number to {@Places.PlaceName=municipal water supply and sewerage company} on {@Places.AbsoluteLocation=corinth avenue}
+- find the number to {@Places.PlaceName=social welfare municipality department} in {@Places.AbsoluteLocation=corinth}
+- find the phone number to {@Places.PlaceName=social protection department} in {@Places.AbsoluteLocation=corinth}
+- find the telephone number for {@Places.PlaceName=department of clininless and recycling} {@Places.AbsoluteLocation=corinth}
+- get phone number for {@Places.PlaceName=citizen service center} in {@Places.AbsoluteLocation=corinth}
+- i need a number for {@Places.PlaceName=technical services protocol}
+- i need a phone number for {@Places.PlaceName=department of urban and municipal status}
+- i need the number for {@Places.PlaceName=revenue and municipal property department} {@Places.AbsoluteLocation=corinth}
+- find {@Places.PlaceName=legality control department of constructions} phone number in {@Places.AbsoluteLocation=corinth}
+- find {@Places.PlaceName=human management and resources department} in {@Places.AbsoluteLocation=municipality of corinthia} phone number
+- telephone number for {@Places.PlaceName=town hall protocol} in {@Places.AbsoluteLocation=corinth}
+- telephone number for {@Places.PlaceName=department of trade and services} on {@Places.AbsoluteLocation=corinth}
+- telephone number for {@Places.PlaceName=corinth hospital}
+- telephone number for {@Places.PlaceName=city planning department} in {@Places.AbsoluteLocation=corinth}
+- telephone number for {@Places.PlaceName=department of culture and sports}
+- telephone number for {@Places.PlaceName=directorate of local development}
+- telephone number for the {@Places.PlaceName=department of expenses}
+- the number to {@Places.AbsoluteLocation=corinth} {@Places.PlaceName=department of environment and quality of life}
+- the number to {@Places.PlaceName=municipal water supply and sewerage company} on {@Places.AbsoluteLocation=corinth avenue}
+- the number to {@Places.PlaceName=social welfare municipality department} in {@Places.AbsoluteLocation=corinth}
+- the number to {@Places.PlaceName=social protection department} in {@Places.AbsoluteLocation=corinth}
+- the phone number for the {@Places.PlaceName=KEP} closest to me
+- the phone number of the {@Places.PlaceName=green department}
+- the phone number to {@Places.PlaceName=technical services}
+- what is the number to {@Places.PlaceName=city hall}
+- what is the phone number for {@Places.PlaceName=department of expenses} {@Places.AbsoluteLocation=corinth}
+- what is the phone number for the nearest {@Places.Cuisine=fish} {@Places.PlaceType=restaurant}
+- what is the phone number of {@Places.PlaceName=mayor's press office}
+- what is the phone number of the {@Places.PlaceName=Art and Science gallery} in {@Places.AbsoluteLocation=corinth}
+- what is the telephone number for {@Places.PlaceName=Community} of {@Places.AbsoluteLocation=agionori}
+- whats the phone number for {@Places.PlaceName=waste and recycling management department}
+
+
+> # Entity definitions
+
+> !# @entity.inherits = name : Places.AbsoluteLocation; domain_name : Places; model_name : AbsoluteLocation
+
+@ ml Places.AbsoluteLocation
+
+> !# @entity.inherits = name : Places.Amenities; domain_name : Places; model_name : Amenities
+
+@ ml Places.Amenities
+
+> !# @entity.inherits = name : Places.Cuisine; domain_name : Places; model_name : Cuisine
+
+@ ml Places.Cuisine
+
+> !# @entity.inherits = name : Places.PlaceName; domain_name : Places; model_name : PlaceName
+
+@ ml Places.PlaceName
+
+> !# @entity.inherits = name : Places.PlaceType; domain_name : Places; model_name : PlaceType
+
+@ ml Places.PlaceType
+
+> !# @entity.inherits = name : Places.PriceRange; domain_name : Places; model_name : PriceRange
+
+@ ml Places.PriceRange
+
+> !# @entity.inherits = name : Places.Product; domain_name : Places; model_name : Product
+
+@ ml Places.Product
+
+> !# @entity.inherits = name : Places.Rating; domain_name : Places; model_name : Rating
+
+@ ml Places.Rating
+
+
+> # PREBUILT Entity definitions
+
+@ prebuilt datetimeV2
+
+@ prebuilt dimension
+
+
+> # Phrase list definitions
+
+
+> # List entities
+

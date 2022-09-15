@@ -1,0 +1,693 @@
+
+> LUIS application information
+> !# @app.name = DimosKorBot
+> !# @app.desc = Luis Model for CoreBot
+> !# @app.versionId = 0.1
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 7.0.0
+> !# @app.tokenizerVersion = 1.0.0
+
+
+> # Intent definitions
+
+# Cancel
+- bye
+- cancel booking
+- exit
+- ignore
+
+
+# None
+- winter is coming
+
+
+> !# @intent.inherits = name : Places.FindPlace; domain_name : Places; model_name : FindPlace
+
+# Places.FindPlace
+- {@Places.Cuisine=barbecue} {@Places.PlaceType=restaurant} closest to my location
+- {@Places.Rating=best} {@Places.Cuisine=souvlaki} near {@Places.AbsoluteLocation=corinth city center}
+- {@Places.Rating=best} {@Places.Cuisine=brunch} near me
+- {@Places.Rating=best} {@Places.Cuisine=gyro} {@Places.PlaceType=restaurants} near me
+- {@Places.Rating=best} {@Places.Cuisine=italian} {@Places.PlaceType=restaurant} in {@Places.AbsoluteLocation=loutraki}
+- {@Places.Rating=best} lunch in {@Places.AbsoluteLocation=corinth}
+- {@Places.Rating=best} lunch {@Places.PlaceType=restaurant} in {@Places.AbsoluteLocation=city center}
+- {@Places.Rating=best} {@Places.Cuisine=mexican} {@Places.Product=food} in {@Places.AbsoluteLocation=corinth}
+- {@Places.Rating=best} nearby {@Places.PlaceType=restaurants}
+- {@Places.Cuisine=breakfast} {@Places.PlaceType=cafes} nearby
+- {@Places.Cuisine=brunch} {@Places.PlaceType=restaurants} in {@Places.AbsoluteLocation=corinth}
+- {@Places.Cuisine=greek} {@Places.PlaceType=restaurant} {@Places.AbsoluteLocation=kalamia beach}
+- {@Places.PlaceType=book stores} in {@Places.AbsoluteLocation=corinth}
+- find a {@Places.PlaceType=kep} in my area
+- find {@Places.PlaceType=barber shop} in my location
+- find {@Places.PlaceType=book stores} in a 5 mile radius
+- find {@Places.PlaceType=city hall}
+- find {@Places.PlaceType=hotels} in {@Places.AbsoluteLocation=corinth}
+- find {@Places.PlaceName=lowes} {@Places.PlaceType=store}
+- find {@Places.PlaceType=nail salons} in my area
+- find {@Places.PlaceType=caffes} on {@Places.AbsoluteLocation=coritnh}
+- find {@Places.PlaceName=george city cafe} in {@Places.AbsoluteLocation=corinth}
+- find {@Places.PlaceType=museums} near me
+- find {@Places.PlaceType=shoe store} in this area
+- find some {@Places.Product=gas} near me
+- find some {@Places.Rating=good} {@Places.PlaceType=coffee shop} nearby
+- find some {@Places.Rating=good} {@Places.PlaceType=restaurants} in {@Places.AbsoluteLocation=kantare beach}
+- find some nearby {@Places.PriceRange=cheap} {@Places.PlaceType=hotel}
+- find some nearby {@Places.PlaceType=churches}
+- find some {@Places.PlaceType=restaurants} near me
+- find some {@Places.PlaceType=supermarkets} nearby
+- find the closest {@Places.Cuisine=greek} {@Places.PlaceType=restaurant} that {@Places.Amenities=allows pets}
+- find the closest open {@Places.PlaceType=pizza place}
+- find the nearest {@Places.PlaceName=KEP}
+- find the nearest open {@Places.Product=gyro} place
+- find the nearest {@Places.PlaceName=public library}
+- {@Places.Rating=five star} {@Places.Cuisine=italian} {@Places.PlaceType=restaurants} near {@Places.AbsoluteLocation=kalamia beach}
+- {@Places.Rating=good} {@Places.PlaceType=restaurants} near here
+- is there a {@Places.PlaceType=hospital} near me
+- is there an {@Places.PlaceType=art museum} in {@Places.AbsoluteLocation=city center}
+- is there any nearby {@Places.PlaceType=malls}
+- is there any {@Places.PlaceName=pizza house} near here
+- is there any {@Places.PlaceType=post office} within 1 km?
+- is there any {@Places.PlaceType=restaurant} in my area
+- {@Places.Cuisine=george barbecue} {@Places.PlaceType=restaurant} {@Places.AbsoluteLocation=corinth}
+- list {@Places.Rating=five star} {@Places.PlaceType=restaurants} in {@Places.AbsoluteLocation=kalamia beach}
+- list {@Places.Rating=four star} {@Places.PlaceType=restaurants} nearby
+- list of {@Places.PlaceType=restaurants} places near me
+- list of the {@Places.Rating=best} {@Places.PlaceType=restaurants} in {@Places.AbsoluteLocation=corinth}
+- list the {@Places.PlaceType=malls} in {@Places.AbsoluteLocation=loutraki}
+- list the {@Places.Rating=top} 3 closest {@Places.PlaceType=barbeque} near {@Places.AbsoluteLocation=city center}
+- list the {@Places.Rating=top} 3 {@Places.PlaceType=shoe stores} in {@Places.AbsoluteLocation=town}
+- local {@Places.PlaceType=bars} near me
+- local {@Places.PlaceType=bars} that are open now
+- local {@Places.PlaceType=coffee shops}
+- local {@Places.Cuisine=mexican} {@Places.PlaceType=restaurants}
+- local {@Places.PlaceType=pubs} in this area
+- locate nearby {@Places.PlaceType=pubs}
+- locate {@Places.AbsoluteLocation=corinth} {@Places.PlaceName=urban planning} {@Places.PlaceType=department}
+- {@Places.PlaceType=petrol pumps} near me
+- {@Places.Product=pizza} nearby
+- {@Places.Product=pizza} on {@Places.AbsoluteLocation=corinth}
+- {@Places.Cuisine=steak} {@Places.PlaceType=restaurants} open on sundays
+- {@Places.Cuisine=greek} {@Places.Product=salad} nearby
+- what's the {@Places.PriceRange=cheapest} {@Places.Cuisine=italian} {@Places.PlaceType=restaurant} around me
+- what's the closest {@Places.PlaceType=coffee place} that is open now
+- what's the closest {@Places.PlaceType=coffee shop} to me
+- what's the closest {@Places.PlaceType=village} to {@Places.AbsoluteLocation=corinth}
+- what's the closest place for {@Places.Product=pizza}
+- what's the closest place to get {@Places.Product=pizza}
+- what's the closest {@Places.PlaceType=KEP} in my area
+- what's the nearest {@Places.PlaceName=mcdonald's} next to me
+- what's the nearest {@Places.PlaceType=shopping mall} in {@Places.AbsoluteLocation=corinth}
+- what's the nearest {@Places.PlaceType=theater} near me
+- where are {@Places.PlaceType=cinemas} nearby
+- where are {@Places.PlaceType=hair salons} in {@Places.AbsoluteLocation=corinth}
+- where are {@Places.PlaceType=motorcycle dealers} near me
+- where can i find {@Places.PlaceName=scity hall}
+- where can i get a {@Places.PlaceType=car wash}
+- where can i get a {@Places.PriceRange=cheap} {@Places.Product=greek salad}
+- where can i get a {@Places.Product=fish} dinner in {@Places.AbsoluteLocation=almyri beach}
+- where can i get a {@Places.Product=pizza} nearby
+- where can i get {@Places.PriceRange=cheap} {@Places.Product=petrol} in {@Places.AbsoluteLocation=salty beach}
+- where is {@Places.PriceRange=cheap} {@Places.Product=pizza}
+- where is {@Places.PriceRange=cheap} {@Places.PlaceType=restaurant} near me
+- where is {@Places.Rating=good} for {@Places.Product=coffee} around here
+- where is {@Places.PlaceType=parking} at {@Places.PlaceName=city center}
+- where is the {@Places.PlaceName=city hall}
+- where is the {@Places.PlaceName=social welfare} {@Places.PlaceType=municipality department}
+
+
+
+> !# @intent.inherits = name : Places.GetAddress; domain_name : Places; model_name : GetAddress
+
+# Places.GetAddress
+- address {@Places.PlaceName=city hall}
+- address for {@Places.AbsoluteLocation=corinth} {@Places.PlaceName=urban planning}
+- address for {@Places.PlaceName=KEP} on {@Places.AbsoluteLocation=corinth}
+- address for {@Places.PlaceName=social welfare} {@Places.AbsoluteLocation=city center} {@Places.PlaceType=office}
+- address for {@Places.AbsoluteLocation=highland county ohio} {@Places.PlaceName=health department}
+- address for {@Places.PlaceType=hospital} in {@Places.AbsoluteLocation=toppenish washington}
+- address for {@Places.AbsoluteLocation=king county} {@Places.PlaceName=juvenile detention center}
+- address for local {@Places.PlaceName=walmart}
+- address for {@Places.PlaceName=loughborough urgent care centre}
+- address for the {@Places.PlaceName=color room} on {@Places.AbsoluteLocation=lincoln avenue in chicago}
+- address for {@Places.PlaceName=walmart} on {@Places.AbsoluteLocation=bechtle avenue in springfield ohio}
+- address {@Places.PlaceName=musician's friend} {@Places.AbsoluteLocation=kansas city missouri}
+- address of {@Places.PlaceName=bed bath and beyond} in {@Places.AbsoluteLocation=pentagon city}
+- address {@Places.PlaceName=south side restaurant}
+- address to {@Places.PlaceName=clear creek apartments} {@Places.AbsoluteLocation=overland park kansas}
+- address to the {@Places.PlaceName=golden corral}
+- address to {@Places.PlaceName=times square}
+- {@Places.AbsoluteLocation=bellevue} {@Places.PlaceName=optometry clinic} address
+- {@Places.AbsoluteLocation=bothell} {@Places.PlaceName=indian temple} address
+- {@Places.PlaceName=building 43 microsoft campus} address
+- {@Places.PlaceName=clear lake south dakota community center} address
+- doctor summer amerson's office {@Places.AbsoluteLocation=florida} {@Places.PlaceType=dentist} address
+- find address for {@Places.PlaceName=atlas metal} {@Places.AbsoluteLocation=denver colorado}
+- find address for {@Places.PlaceName=larry's animal clinic} in {@Places.AbsoluteLocation=portland oregon}
+- find the address for {@Places.PlaceName=microsoft building one twenty two}
+- find the address for the {@Places.PlaceName=los angeles fashion district} in {@Places.AbsoluteLocation=los angeles california}
+- find the address for {@Places.PlaceName=tony kent} {@Places.AbsoluteLocation=water street princeton indiana}
+- find the address of {@Places.AbsoluteLocation=thames valley} {@Places.PlaceType=auto repairs}
+- find the address to {@Places.PlaceName=chaat n roll}
+- {@Places.PlaceName=first tech credit union} {@Places.AbsoluteLocation=redmond} address
+- i need the address for {@Places.PlaceName=best buy} {@Places.AbsoluteLocation=bellevue}
+- i need the address for the nearest {@Places.PlaceName=suntrust bank}
+- i need the address for {@Places.PlaceName=walmart}
+- {@Places.PlaceName=lynnwood city hall} address
+- {@Places.PlaceName=portland community college} {@Places.PlaceName=sylvania campus} address
+- {@Places.PlaceName=starbucks} {@Places.AbsoluteLocation=new york} address
+- the address for {@Places.PlaceName=abc company} in {@Places.AbsoluteLocation=birmingham}
+- the address for {@Places.AbsoluteLocation=chicago} {@Places.PlaceType=international airport}
+- the address for {@Places.PlaceName=gleason works} {@Places.AbsoluteLocation=rochester new york}
+- the address for {@Places.PlaceName=heiney brothers coffee}
+- the address for {@Places.PlaceName=live oak baptist church} in {@Places.AbsoluteLocation=denham springs}
+- the address for the {@Places.PlaceName=cafe vita}
+- the address for the {@Places.PlaceName=dinner boat cruise} in {@Places.AbsoluteLocation=chattanooga tennessee}
+- the address for the {@Places.PlaceName=red cross}
+- the address of the {@Places.PlaceName=barge} in {@Places.AbsoluteLocation=gillingham kent}
+- the address of the {@Places.PlaceName=boots} on {@Places.AbsoluteLocation=clapham high street london}
+- the address of the {@Places.PlaceName=lowes store} on {@Places.AbsoluteLocation=rainier in seattle}
+- the address of the {@Places.PlaceName=walmart} in {@Places.AbsoluteLocation=derby kansas}
+- the address to {@Places.PlaceName=cinebarre} {@Places.AbsoluteLocation=issaquah}
+- the address to {@Places.PlaceName=cinemark farmington at station park}
+- the address to {@Places.PlaceName=fatburger} in {@Places.AbsoluteLocation=southgate california}
+- the address to {@Places.PlaceName=itt tech} in {@Places.AbsoluteLocation=virginia beach virginia}
+- the address to {@Places.PlaceName=river woods conference center}
+- the address to the {@Places.PlaceName=ymca} in {@Places.AbsoluteLocation=salisbury north carolina}
+- the {@Places.PlaceName=tennessean center} {@Places.AbsoluteLocation=denver colorado} address
+- {@Places.PlaceName=university of la crosse wisconsin} {@Places.AbsoluteLocation=la crosse} address
+- what is the address for {@Places.PlaceName=abc restaurant} on {@Places.AbsoluteLocation=webster avenue in bronx new york}
+- what is the address for {@Places.PlaceName=thames valley park}
+- what is the address for the nearest {@Places.PlaceName=starbucks}
+- what is the address for {@Places.PlaceName=vancouver international airport}
+- what is the address of {@Places.PlaceName=abc high school}
+- what is the address of the {@Places.PlaceName=comfort suites} in {@Places.AbsoluteLocation=chestertown maryland}
+- what is the address to {@Places.PlaceName=applebee's}
+- what is the address to the closest {@Places.PlaceName=autozone}
+- what is the address to urban planning department on corinth
+- what s the address for {@Places.PlaceName=belmont park} {@Places.AbsoluteLocation=san diego}
+- what s the address for the {@Places.PlaceType=business hotel} in {@Places.AbsoluteLocation=belgium}
+- what s the address of {@Places.PlaceName=the gate} in {@Places.AbsoluteLocation=islington}
+- what s the address of the {@Places.PlaceName=henson studio}
+- what s the address of the {@Places.AbsoluteLocation=seattle} {@Places.PlaceType=railway station}
+- what's the address for the {@Places.PlaceName=microsoft store} in {@Places.AbsoluteLocation=arlington virginia}
+- what's the address of the {@Places.PlaceType=registry office} in {@Places.AbsoluteLocation=preston}
+
+
+> !# @intent.inherits = name : Places.GetDistance; domain_name : Places; model_name : GetDistance
+
+# Places.GetDistance
+- calculate the distance from where i am right now to {@Places.AbsoluteLocation=corinth city center}
+- distance between my location and {@Places.AbsoluteLocation=san francisco}
+- distance from here to {@Places.AbsoluteLocation=london}
+- distance from my current location to {@Places.AbsoluteLocation=lordsburg new mexico}
+- distance to {@Places.AbsoluteLocation=dallas texas}
+- how far am i away from {@Places.AbsoluteLocation=jordan street}
+- how far am i away from {@Places.PlaceName=park view}
+- how far am i from the {@Places.PlaceType=airport}
+- how far am i from the {@Places.PlaceName=empire state building}
+- how far am i to {@Places.PlaceName=empire state}
+- how far are we from {@Places.PlaceName=albuquerque international airport}
+- how far are we from {@Places.PlaceName=universal studios} {@Places.AbsoluteLocation=florida}
+- how far away am i from the {@Places.PlaceName=space needle}
+- how far away am i from {@Places.AbsoluteLocation=twenty one eighteen saint louis}
+- how far away are we from {@Places.AbsoluteLocation=temple oklahoma}
+- how far away from {@Places.AbsoluteLocation=hardeeville south carolina}
+- how far away is {@Places.AbsoluteLocation=bonner montana}
+- how far away is {@Places.PlaceName=chili's} from where i am
+- how far away is {@Places.PlaceName=dillards department store} from here
+- how far away is {@Places.PlaceType=doctor spooner's office}
+- how far away is {@Places.PlaceName=five guys} from my current location
+- how far away is it to {@Places.PlaceName=bay sixty six}
+- how far away is {@Places.PlaceType=school} from here
+- how far away is {@Places.PlaceName=tesco} {@Places.AbsoluteLocation=cowbridge road}
+- how far away is the closest oreganos {@Places.PlaceType=restaurant}
+- how far away is the {@Places.PlaceName=wales national swimming pool} in {@Places.AbsoluteLocation=swansea}
+- how far away to {@Places.AbsoluteLocation=wichita kansas}
+- how far {@Places.PlaceName=fiddleheads} is from here
+- how far from my location to the nearest {@Places.PlaceType=grocery store}
+- how far i am from {@Places.AbsoluteLocation=des moine iowa}
+- how far is {@Places.AbsoluteLocation=batley} {@Places.PlaceType=shopping center}
+- how far is {@Places.AbsoluteLocation=buffalo} from here
+- how far is {@Places.AbsoluteLocation=burnley} from my current location
+- how far is {@Places.PlaceName=disney world paris}
+- how far is {@Places.AbsoluteLocation=fairless hills pennsylvania} from my location
+- how far is {@Places.AbsoluteLocation=fort campbell kentucky} from where i am now
+- how far is it from here to {@Places.PlaceName=starbucks}
+- how far is it from my house to {@Places.AbsoluteLocation=lufborough}
+- how far is it from my location to {@Places.AbsoluteLocation=harrison arkansas}
+- how far is it to {@Places.PlaceName=canterbury fire station}
+- how far is it to {@Places.PlaceName=coconuts cafe} from here
+- how far is it to {@Places.PlaceName=columbia mall} in {@Places.AbsoluteLocation=maryland}
+- how far is it to go to {@Places.AbsoluteLocation=belfast}
+- how far is it to {@Places.PlaceName=kings college} {@Places.AbsoluteLocation=wimbledon}
+- how far is it to {@Places.AbsoluteLocation=lexington oklahoma}
+- how far is it to {@Places.PlaceName=manchester airport} from my location
+- how far is it to the nearest {@Places.PlaceType=train station}
+- how far is it to walk to {@Places.PlaceName=crystal palace gardens}
+- how far is {@Places.AbsoluteLocation=killeen texas}
+- how far is {@Places.PlaceName=lifestyle fitness gym} {@Places.AbsoluteLocation=darlington}
+- how far is {@Places.PlaceName=new delhi railway station} from here
+- how far is {@Places.AbsoluteLocation=north carolina} {@Places.PlaceName=a and t} from my location
+- how far is {@Places.AbsoluteLocation=santa cruz} {@Places.PlaceType=beach} from here
+- how far is {@Places.PlaceName=sea world} {@Places.AbsoluteLocation=san antonio} from me
+- how far is the closest {@Places.PlaceType=shop}
+- how far is the closest {@Places.PlaceName=starbucks} from here
+- how far is the {@Places.AbsoluteLocation=detroit} {@Places.PlaceType=airport}
+- how far is the {@Places.PlaceType=drug store}
+- how far is the {@Places.PlaceName=emerald city gym}
+- how far is the {@Places.AbsoluteLocation=grand canyon} from here
+- how far is the {@Places.AbsoluteLocation=intracoastal waterway} from my location
+- how far is the nearest {@Places.PlaceType=lake} from here
+- how far is the nearest {@Places.PlaceName=subway}
+- how far is the {@Places.PlaceName=northgate mall} from here
+- how far is {@Places.AbsoluteLocation=two three nine three two saint andrews in paola kansas} from me
+- how far {@Places.AbsoluteLocation=new delhi} from here
+- how far to drive to {@Places.AbsoluteLocation=copenhagen}
+- how far to {@Places.PlaceName=ikea}
+- how far to {@Places.AbsoluteLocation=margate} from my location
+- how far to the closest {@Places.PlaceType=beach}
+- how far to the {@Places.AbsoluteLocation=mayfield} {@Places.PlaceType=guitar center}
+- how far to the nearest {@Places.PlaceName=krispy kreme}
+- how far to walk to {@Places.PlaceName=walmart}
+- how many miles from here to {@Places.AbsoluteLocation=lemisha}
+- how many miles from here to {@Places.PlaceType=school}
+- how many miles is it from my current location to {@Places.AbsoluteLocation=eleven gideon avenue middletown ohio}
+- how many miles is it to {@Places.PlaceName=colchester railway station}
+- how many miles is it to {@Places.AbsoluteLocation=hastings} from here
+- what is the distance from here to {@Places.AbsoluteLocation=avenida paulista}
+- what is the distance from my current location to {@Places.AbsoluteLocation=sydney australia}
+- what is the distance from my location to {@Places.AbsoluteLocation=massachusetts}
+- what is the distance to {@Places.AbsoluteLocation=boston massachusetts}
+- what is the distance to {@Places.AbsoluteLocation=richmond virginia} from here
+- what is the distance to {@Places.PlaceName=willis tower}
+- what is the driving distance from here to {@Places.AbsoluteLocation=los angeles}
+- what's the distance from here
+- what's the distance from my location to {@Places.AbsoluteLocation=agra}
+- whats the distance between here and {@Places.AbsoluteLocation=childress texas}
+
+
+> !# @intent.inherits = name : Places.GetHours; domain_name : Places; model_name : GetHours
+
+# Places.GetHours
+- {@Places.PlaceName=adair county health department} hours of operation
+- {@Places.AbsoluteLocation=bellevue} {@Places.PlaceType=mall} open hours
+- {@Places.PlaceName=best buy} in {@Places.AbsoluteLocation=burbank} store hours
+- {@Places.PlaceName=costcos} hours
+- {@Places.PlaceName=cricket} {@Places.AbsoluteLocation=tampa florida} store hours
+- {@Places.PlaceName=david barton gym} hours in {@Places.AbsoluteLocation=bellevue}
+- {@Places.PlaceName=el mercado latino} {@Places.PlaceName=pike place market} hours
+- {@Places.PlaceName=hair buzz} on {@Places.AbsoluteLocation=fifty second and jefferson} store hours
+- how late is {@Places.PlaceName=food lion} on {@Places.AbsoluteLocation=morganton} open
+- how late is {@Places.PlaceName=kroger} open until
+- how late is {@Places.PlaceName=sherman williams} in {@Places.AbsoluteLocation=leesburg florida} open till
+- how late is the {@Places.PlaceType=library} open in {@Places.AbsoluteLocation=whitesboro}
+- how late is {@Places.PlaceName=walmart} in {@Places.AbsoluteLocation=exeter} open
+- how long is {@Places.PlaceName=office depot} open
+- {@Places.PlaceName=ikea} in {@Places.AbsoluteLocation=charlotte north carolina} hours
+- {@Places.PlaceName=la fitness} {@Places.AbsoluteLocation=woodhaven} saturday hours
+- opening hours {@Places.PlaceName=sainsbury s} {@Places.AbsoluteLocation=dartford}
+- {@Places.PlaceType=paint store} {@Places.AbsoluteLocation=long beach new york} store hours
+- {@Places.PlaceName=pets at home} {@Places.AbsoluteLocation=milton keynes} opening hours
+- {@Places.PlaceName=planet fitness} hours on {@Places.AbsoluteLocation=belmont and pulaski}
+- {@Places.AbsoluteLocation=portland oregon} {@Places.PlaceName=costco} hours
+- {@Places.PlaceType=pro club} {@Places.AbsoluteLocation=redmond} hours
+- {@Places.PlaceType=public house} opening hours in {@Places.AbsoluteLocation=clay cross}
+- {@Places.PlaceName=shoe warehouse} {@Places.AbsoluteLocation=courtenay} store hours
+- {@Places.PlaceName=walmart} business hours
+- what are the business hours for {@Places.PlaceName=costco}
+- what are the hours for {@Places.PlaceName=naturally flyy} on fridays
+- what are the hours for {@Places.PlaceName=stone mountain park} tomorrow
+- what are the hours for the {@Places.PlaceName=pima air museum}
+- what are the hours for the {@Places.PlaceName=target} in {@Places.AbsoluteLocation=broken arrow}
+- what are the hours of {@Places.PlaceName=best buy} {@Places.AbsoluteLocation=new york new hartford}
+- what are the hours of {@Places.PlaceName=great clips} in {@Places.AbsoluteLocation=madison ohio} tomorrow
+- what are the hours of operation for {@Places.PlaceName=emily's playhouse} on sunday
+- what are the hours of operation for {@Places.PlaceName=summer house patio furniture store} in {@Places.AbsoluteLocation=bellevue}
+- what are the hours of the closest {@Places.PlaceName=chase}
+- what are the hours of {@Places.PlaceName=tucson community acupuncture}
+- what are the hours that {@Places.PlaceName=gamestop} is open
+- what are the {@Places.AbsoluteLocation=monessen pa} {@Places.PlaceType=post office} hours
+- what are the open hours for {@Places.PlaceName=sports clips}
+- what are the opening hours for {@Places.PlaceName=monsoon restaurant} {@Places.AbsoluteLocation=capitol hill seattle}
+- what are the opening hours for {@Places.PlaceName=tesco} in {@Places.AbsoluteLocation=chesterton}
+- what are the opening hours of {@Places.PlaceName=ikea} {@Places.AbsoluteLocation=edmonton}
+- what are the opening hours of {@Places.PlaceName=tesco} in {@Places.AbsoluteLocation=weybridge}
+- what are the {@Places.PlaceName=safeway pharmacy} hours
+- what are the store hours for {@Places.PlaceName=everything party} in {@Places.AbsoluteLocation=redmond washington}
+- what are the store hours for {@Places.PlaceName=target}
+- what are the store hours of {@Places.PlaceName=target supercenter}
+- what are the sunday hours for {@Places.PlaceName=sally beauty} on {@Places.AbsoluteLocation=university drive}
+- what are {@Places.PlaceName=trustmark banks} hours
+- what is the {@Places.PlaceName=costco} store hours
+- what time does {@Places.PlaceName=aldi} s close
+- what time does {@Places.PlaceName=bank of america} open tomorrow morning
+- what time does {@Places.PlaceName=best buy} in {@Places.AbsoluteLocation=johnson city tennessee} close today
+- what time does {@Places.PlaceName=best buy} in {@Places.AbsoluteLocation=niles ohio} open
+- what time does {@Places.PlaceName=costco} open until
+- what time does {@Places.PlaceName=evans bike shop} in {@Places.AbsoluteLocation=victoria} open tomorrow morning
+- what time does {@Places.AbsoluteLocation=hemel hempstead} {@Places.PlaceName=hsbc} open today
+- what time does {@Places.PlaceName=nordstrom} at {@Places.PlaceName=park meadows mall} close
+- what time does {@Places.PlaceName=sam's} close
+- what time does the {@Places.PlaceName=dupont branch library} close tonight
+- what time does the {@Places.PlaceName=experience music project} in {@Places.AbsoluteLocation=seattle} open today
+- what time does the nearest {@Places.PlaceName=cricket wireless store} open
+- what time does {@Places.PlaceName=the party place} open on saturdays
+- what time does the {@Places.PlaceType=post office} in {@Places.AbsoluteLocation=homesdale street} open tomorrow
+- what time does the {@Places.PlaceType=post office} on {@Places.AbsoluteLocation=gilman} open during the week
+- what time does {@Places.PlaceName=toysrus} at {@Places.AbsoluteLocation=lakeside} open today
+- what time is {@Places.PlaceName=kohl's} open till in {@Places.AbsoluteLocation=woodberry}
+- what time is {@Places.PlaceName=macy s} {@Places.AbsoluteLocation=orland park} open till
+- what time is {@Places.PlaceName=susan's store} in {@Places.AbsoluteLocation=freehold new jersey} open till
+- what time is {@Places.PlaceName=tesco} open today
+- what time is the {@Places.PlaceName=apollo school of beauty} open
+- what time is the {@Places.PlaceName=exeter arms} open in {@Places.AbsoluteLocation=rutland}
+- what time is the {@Places.PlaceName=microsoft store} open until
+- when does {@Places.PlaceName=clark tire} in {@Places.AbsoluteLocation=gastonia} open tomorrow
+- when does {@Places.PlaceName=costco} {@Places.AbsoluteLocation=covington} open
+- when does {@Places.PlaceName=food city} on {@Places.AbsoluteLocation=nineteenth ave and indian school} close
+- when does the {@Places.AbsoluteLocation=boise} {@Places.PlaceName=dmv} open
+- when does the {@Places.PlaceName=fred meyer pharmacy} close
+- when does the {@Places.PlaceName=high cross} in {@Places.AbsoluteLocation=leicester} open
+- when does the nearest {@Places.PlaceType=grocery store} close
+- when does the {@Places.PlaceName=peninsula town center} open today
+
+
+> !# @intent.inherits = name : Places.GetMenu; domain_name : Places; model_name : GetMenu
+
+# Places.GetMenu
+- a menu for {@Places.PlaceName=quaker steak and lube}
+- {@Places.PlaceName=al's pizzeria} in {@Places.AbsoluteLocation=castile new york} s menu
+- bring up the menu for {@Places.PlaceName=dominos pizza}
+- bring up the menu for {@Places.PlaceName=olive garden}
+- {@Places.PlaceName=casa fiesta mexican restaurant} {@Places.AbsoluteLocation=nashville tennessee} menu
+- {@Places.Product=cocktail} menu for {@Places.PlaceName=macaroni grill}
+- {@Places.Product=cocktail} menu for {@Places.PlaceName=poolside}
+- display {@Places.Product=cocktail} menu for {@Places.PlaceName=olive garden}
+- display menu for {@Places.PlaceName=srivichai thai restaurant}
+- do you have the menu for {@Places.PlaceName=martoranas} in {@Places.AbsoluteLocation=atlantic city harrahs}
+- do you have the menu for {@Places.PlaceName=wildfire restaurant} in {@Places.AbsoluteLocation=oak brook}
+- {@Places.PlaceName=domino s pizza} in {@Places.AbsoluteLocation=walkertown} menu
+- {@Places.PlaceName=fall city roadhouse} {@Places.Amenities=happy hour} menu
+- find a menu for {@Places.PlaceName=laplace frostop}
+- find {@Places.PlaceName=applebees} {@Places.Amenities=kids menu}
+- find {@Places.Amenities=kids meals} at {@Places.PlaceName=chipotle}
+- find {@Places.PlaceName=red lobster} {@Places.Amenities=kids menu}
+- find the {@Places.Amenities=kids menu} for {@Places.PlaceName=tgi friday s}
+- find the menu for {@Places.PlaceName=olive garden}
+- find {@Places.PlaceName=wendy's restaurant} menu
+- {@Places.Amenities=happy hour} menu for {@Places.PlaceName=daniels pub}
+- {@Places.Amenities=happy hour} menu for {@Places.PlaceName=joe's}
+- i need a menu for {@Places.PlaceName=ihop}
+- i need the menu for {@Places.PlaceName=chipotle grill}
+- {@Places.Amenities=kid menu} for {@Places.PlaceName=olive garden}
+- menu for {@Places.PlaceName=fish house}
+- menu for {@Places.PlaceName=pino's pizzeria}
+- menu for {@Places.PlaceName=tarasco's tacos and wings} {@Places.AbsoluteLocation=cartersville}
+- {@Places.PlaceName=outback steakhouse restaurant} menu
+- pull up the {@Places.Amenities=kids menu} for {@Places.PlaceName=marios}
+- see the {@Places.Product=cocktail} menu for {@Places.PlaceName=lucys}
+- see the menu for {@Places.PlaceName=chipotle}
+- show {@Places.Product=cocktail} menu for {@Places.PlaceName=pizza villa}
+- show {@Places.Product=drink} menu for {@Places.PlaceName=green iguana}
+- show {@Places.PlaceName=duffy's} {@Places.Amenities=happy hour} menu
+- show {@Places.Amenities=kid's} menu at {@Places.PlaceName=kfc}
+- show {@Places.Amenities=kids menu} for {@Places.PlaceName=pizza hut}
+- show the {@Places.Product=cocktail} menu for {@Places.PlaceName=becky s place}
+- show the {@Places.Amenities=kids menu} for {@Places.PlaceName=mcdonald's}
+- show the menu for {@Places.PlaceName=vito's cafe}
+- {@Places.PlaceName=steak and shake} s menu
+- {@Places.PlaceName=taco bell}'s menu
+- the {@Places.Product=cocktail} menu for {@Places.PlaceName=steveno}
+- the {@Places.Amenities=happy hour} menu at {@Places.PlaceName=carrabas}
+- the {@Places.Amenities=happy hour} menu for {@Places.PlaceName=chilis}
+- the {@Places.Amenities=happy hour} menu for {@Places.PlaceName=gunpowder lodge}
+- the {@Places.Amenities=happy hour} menu for the {@Places.PlaceName=beachcomber} in {@Places.AbsoluteLocation=wellfleet}
+- the {@Places.Amenities=kid's} menu at {@Places.PlaceName=olive garden}
+- the menu at {@Places.PlaceName=park burger}
+- the menu for {@Places.PlaceName=abc} {@Places.AbsoluteLocation=saffron walden}
+- the menu for {@Places.PlaceName=applebees} on {@Places.AbsoluteLocation=west lafayette road}
+- the menu for {@Places.PlaceName=el pollo loco}
+- the menu for {@Places.PlaceName=great wall china} in {@Places.AbsoluteLocation=faversham}
+- the menu for {@Places.PlaceName=roadhouse grill} {@Places.AbsoluteLocation=grand lake colorado}
+- the {@Places.PlaceName=old spaghetti factory} menu
+- {@Places.PlaceName=the white peacock restaurant} in {@Places.AbsoluteLocation=leicester} menu
+- what is {@Places.PlaceName=olive garden}'s menu
+- what is on the menu at {@Places.PlaceName=restaurant fifty five} in {@Places.AbsoluteLocation=dover delaware}
+- what is the menu at {@Places.PlaceName=foster's pint and plate} in {@Places.AbsoluteLocation=rogers arkansas}
+- what is the menu at the {@Places.Cuisine=paris} {@Places.PlaceType=restaurant}
+
+
+> !# @intent.inherits = name : Places.GetPhoneNumber; domain_name : Places; model_name : GetPhoneNumber
+
+# Places.GetPhoneNumber
+- a {@Places.PlaceName=north side tag agency} in {@Places.AbsoluteLocation=tulsa oklahoma} phone number
+- a telephone number for {@Places.PlaceName=british airways} in {@Places.AbsoluteLocation=italy}
+- a telephone number for {@Places.PlaceName=eleven oh one kettering squadron}
+- {@Places.PlaceType=auto store} on {@Places.AbsoluteLocation=lakewood road} phone number
+- can i get the number for {@Places.PlaceName=doctor lee dds} {@Places.AbsoluteLocation=maple grove}
+- can i get the number to {@Places.PlaceName=cvs} on {@Places.AbsoluteLocation=thirty fifth avenue and peoria}
+- can i get the phone number for {@Places.PlaceName=fergusons}
+- can i get the phone number for {@Places.PlaceName=midas} in {@Places.AbsoluteLocation=fair banks alaska}
+- can i have the number for {@Places.PlaceName=checker cab} in {@Places.AbsoluteLocation=las vegas nevada}
+- can i have the number for {@Places.PlaceName=north side catholic cemeteries} {@Places.AbsoluteLocation=pittsburgh pa}
+- can i have the number for {@Places.PlaceName=pine hills lodge}
+- can i have the telephone number for {@Places.PlaceName=daily fish} in {@Places.AbsoluteLocation=camden town}
+- contact number for {@Places.PlaceName=luton christian fellowship}
+- do you have the phone number for {@Places.PlaceName=fresh grocer}
+- find {@Places.PlaceName=dominos pizza} phone number in {@Places.AbsoluteLocation=fergus falls minnesota}
+- find {@Places.PlaceName=isle of capri} in {@Places.AbsoluteLocation=black hawk colorado} phone number
+- find number for {@Places.PlaceName=pizza pro} in {@Places.AbsoluteLocation=merkel texas}
+- find number for {@Places.PlaceName=subway} on {@Places.AbsoluteLocation=26hth amp sycamore in sioux falls}
+- find phone number for {@Places.PlaceName=albany medical center hospital}
+- find phone number for {@Places.PlaceName=king's things} in {@Places.AbsoluteLocation=swedesboro new jersey}
+- find telephone number for {@Places.PlaceName=bowling green state university alumni}
+- find the number for {@Places.PlaceName=king city chinese}
+- find the number for the {@Places.PlaceName=weighbridge vandals rugby club}
+- find the number to {@Places.AbsoluteLocation=bucks county} {@Places.PlaceType=courthouse}
+- find the number to {@Places.PlaceName=cricket} on {@Places.AbsoluteLocation=south avenue}
+- find the number to {@Places.AbsoluteLocation={@Places.PlaceName=pieratts} lexington kentucky}
+- find the number to {@Places.PlaceName=steven hood} in {@Places.AbsoluteLocation=colorado springs}
+- find the phone number to {@Places.PlaceName=higher ground} in {@Places.AbsoluteLocation=springfield missouri}
+- find the telephone number for {@Places.PlaceName=deutsche bank} {@Places.AbsoluteLocation=london}
+- get phone number for {@Places.PlaceName=protocol} {@Places.PlaceType=department}
+- i need a number for {@Places.PlaceName=verizon wireless}
+- i need a phone number for {@Places.PlaceName=virgin media support}
+- i need the number for {@Places.PlaceName=steak n hoagie} {@Places.AbsoluteLocation=stallings north carolina}
+- i need the number to {@Places.PlaceName=mr hooks} in {@Places.AbsoluteLocation=philadelphia}
+- i need the phone number for the {@Places.PlaceName=comfort inn} on {@Places.AbsoluteLocation=cypress parkway in houston texas}
+- i need the phone number to {@Places.PlaceName=somers elementary school} {@Places.AbsoluteLocation=kenosha wisconsin}
+- {@Places.PlaceName=la nails} {@Places.AbsoluteLocation=johnson city tennessee} s phone number
+- {@Places.AbsoluteLocation=merkel} {@Places.PlaceType=hardware store}'s phone number
+- need a phone number for {@Places.PlaceName=o reilly auto parts}
+- need the number to {@Places.PlaceName=cricket} on {@Places.AbsoluteLocation=wilson road}
+- number for {@Places.PlaceType=doctor leslie coffman s office} in {@Places.AbsoluteLocation=west monroe louisiana}
+- phone number {@Places.AbsoluteLocation=denver} {@Places.PlaceName=grand hyatt hotel}
+- phone number for {@Places.AbsoluteLocation=indiana} {@Places.PlaceName=bmv} in {@Places.AbsoluteLocation=schererville indiana}
+- phone number for {@Places.PlaceName=kroger} on {@Places.AbsoluteLocation=beltline in northgate}
+- phone number for {@Places.PlaceName=sport clips} in {@Places.PlaceName=friendly shopping center}
+- phone number for {@Places.PlaceName=strombolis} in {@Places.AbsoluteLocation=windermere florida}
+- phone number for the {@Places.PlaceName=ice cream shop}
+- phone number to {@Places.PlaceName=protocol} in {@Places.AbsoluteLocation=corinth}
+- protocol on city hall phone number
+- {@Places.PlaceName=rite aid} s phone number on {@Places.AbsoluteLocation=randleman road}
+- search {@Places.PlaceName=bank of america} {@Places.AbsoluteLocation=edwardsville} phone number
+- {@Places.AbsoluteLocation=spring valley} {@Places.PlaceName=autozone} phone number
+- telephone number for {@Places.PlaceName=cedar point} {@Places.AbsoluteLocation=sandusky ohio}
+- telephone number for {@Places.PlaceName=holley and steer solicitors} in {@Places.AbsoluteLocation=burnham on sea}
+- telephone number for {@Places.PlaceName=norwalk hospital}
+- telephone number for {@Places.PlaceName=staples} at {@Places.AbsoluteLocation=squires gate blackpool}
+- the number for {@Places.PlaceName=cinnabons} at {@Places.PlaceName=mayfair mall}
+- the number of a {@Places.PlaceType=taxi firm} in {@Places.AbsoluteLocation=carmarthen}
+- the number to {@Places.PlaceName=burlington coat factory}
+- the number to {@Places.PlaceName=panther riverside park} {@Places.AbsoluteLocation=atlanta georgia}
+- the number to {@Places.PlaceName=walgreens} of {@Places.AbsoluteLocation=mcmahon}
+- the phone number for the {@Places.PlaceName=t mobile store} closest to me
+- the phone number of the {@Places.PlaceName=harvest restaurant}
+- the phone number to {@Places.PlaceName=taco bell}
+- {@Places.PlaceName=u haul}'s number in {@Places.AbsoluteLocation=janesville wisconsin}
+- {@Places.PlaceName=wendy s washroom} on {@Places.AbsoluteLocation=east patapsco avenue baltimore maryland} the phone number
+- what is the number to {@Places.AbsoluteLocation=sedalia}'{@Places.PlaceType=s movie theater}
+- what is the number to the local {@Places.PlaceName=ywca}
+- what is the phone number for {@Places.PlaceName=jay's bistro} {@Places.AbsoluteLocation=fort collins colorado}
+- what is the phone number for the nearest {@Places.PlaceName=pei wei} {@Places.Cuisine=asian} {@Places.PlaceType=restaurant}
+- what is the phone number of {@Places.PlaceName=starbucks}
+- what is the phone number of the {@Places.PlaceName=mukilteo library} in {@Places.AbsoluteLocation=washington state}
+- what is the telephone number for {@Places.PlaceName=coward tv sales and service} {@Places.AbsoluteLocation=georgia}
+- whats the phone number for {@Places.PlaceName=acme ice house}
+- whats the phone number of the {@Places.PlaceName=space needle}
+- whats the phone number to {@Places.PlaceName=applebees} on {@Places.AbsoluteLocation=one forty one in arnold missouri}
+
+
+> !# @intent.inherits = name : Places.MakeCall; domain_name : Places; model_name : MakeCall
+
+# Places.MakeCall
+- call {@Places.AbsoluteLocation=987 stadium drive} {@Places.PlaceName=kelly s belly}
+- call {@Places.PlaceName=bob's bar} on {@Places.AbsoluteLocation=main street} for me
+- call {@Places.PlaceType=car sales and service} {@Places.AbsoluteLocation=hamilton indiana}
+- call {@Places.PlaceName=comfort dental} in {@Places.AbsoluteLocation=silverthorne colorado}
+- call {@Places.PlaceName=cricket} on {@Places.AbsoluteLocation=lyell avenue in rochester new york}
+- call {@Places.PlaceName=cvs pharmacy} on the {@Places.AbsoluteLocation=valley forge road lansdale pennsylvania}
+- call {@Places.PlaceName=drums auto} on {@Places.AbsoluteLocation=main street in rock hill south carolina}
+- call {@Places.PlaceName=first honda} of {@Places.AbsoluteLocation=simi valley}
+- call {@Places.PlaceName=fitness connection} in {@Places.PlaceName=greenspoint mall}
+- call {@Places.PlaceName=gamestop} {@Places.PlaceName=germantown commons}
+- call {@Places.PlaceName=goodwill} {@Places.AbsoluteLocation=federal highway delray beach}
+- call {@Places.PlaceName=hertel post office}
+- call {@Places.PlaceName=jc penney} in {@Places.PlaceName=foothills mall}
+- call {@Places.PlaceName=knx traffic} on speaker
+- call {@Places.PlaceName=lake union veterinary clinic}
+- call {@Places.AbsoluteLocation=lanjigarh} {@Places.PlaceType=post office}
+- call {@Places.PlaceName=larry's} in {@Places.AbsoluteLocation=mill creek}
+- call {@Places.PlaceName=long's transport}
+- call {@Places.PlaceName=marshall's junkyard} in {@Places.AbsoluteLocation=jeffersonville indiana}
+- call {@Places.PlaceType=mazda dealership} {@Places.AbsoluteLocation=rochester new york}
+- call me a {@Places.PlaceName=taxi}
+- call me the {@Places.PlaceName=revenue department}
+- call {@Places.AbsoluteLocation=medford oregon} {@Places.PlaceName=buffalo wild wings}
+- call {@Places.PlaceType=mexican eatery} on {@Places.AbsoluteLocation=kass street}
+- call {@Places.PlaceName=middleton hospital} in {@Places.AbsoluteLocation=middletown connecticut} {@Places.PlaceType=human resources department}
+- call nearest {@Places.PlaceName=toys r us}
+- call {@Places.AbsoluteLocation=northumberland county} {@Places.PlaceType=traffic court}
+- call {@Places.Product=pizza} in {@Places.AbsoluteLocation=bellevue}
+- call {@Places.PlaceName=shopko pharmacy} of {@Places.AbsoluteLocation=spanish fork}
+- call {@Places.PlaceName=shoto s restaurant} in {@Places.AbsoluteLocation=lexington}
+- call {@Places.PlaceName=sprint} in {@Places.AbsoluteLocation=lawrence kansas}
+- call {@Places.PlaceName=staples} at {@Places.AbsoluteLocation=aiken south carolina}
+- call the {@Places.PlaceName=apple store} at {@Places.PlaceName=north point mall}
+- call the {@Places.AbsoluteLocation=bellevue} {@Places.PlaceName=starbucks}
+- call the {@Places.PlaceName=city ​​planning department}
+- call the {@Places.PlaceName=courtyard by marriott} at {@Places.PlaceName=los angeles airport}
+- call the {@Places.PlaceName=hogie shop} on {@Places.AbsoluteLocation=walnut street}
+- call the {@Places.PlaceName=hyatt regency} {@Places.AbsoluteLocation=bellevue seattle}
+- call the local {@Places.PlaceName=domino's}
+- call the local {@Places.PlaceType=police station}
+- call the {@Places.PlaceType=post office} in {@Places.AbsoluteLocation=falls of rough kentucky}
+- call the {@Places.PlaceType=post office} on {@Places.AbsoluteLocation=72nd street}
+- call the {@Places.PlaceName=protocol of the municipality}
+- call the {@Places.PlaceName=red lobster} on {@Places.AbsoluteLocation=lone hill} using skype
+- call the {@Places.AbsoluteLocation=red wing} {@Places.PlaceType=united states postal service}
+- call the {@Places.PlaceName=space needle} in {@Places.AbsoluteLocation=seattle}
+- call the {@Places.PlaceType=store} in {@Places.AbsoluteLocation=redmond}
+- call the technical works and studies department
+- call the {@Places.PlaceName=town hall protocol}
+- call the {@Places.PlaceName=urban ​​planning department}
+- call the {@Places.PlaceName=ymca} in {@Places.AbsoluteLocation=stevens point}
+- call {@Places.AbsoluteLocation=twenty nine hundred west dallas apartments in houston}
+- call up {@Places.PlaceName=taco bell} on {@Places.AbsoluteLocation=university ave in st paul}
+- call {@Places.PlaceName=walmart} {@Places.AbsoluteLocation=cattlemen road sarasota florida} {@Places.PlaceType=pharmacy}
+- call {@Places.PlaceType=wic office} located on {@Places.AbsoluteLocation=saint john s austin texas}
+- connect me with the {@Places.PlaceName=sorrento's} on {@Places.AbsoluteLocation=palm bay rd}
+- contact the {@Places.PlaceType=donut shop} on {@Places.AbsoluteLocation=happy street}
+- contact the {@Places.PlaceType=popcorn shop} on {@Places.AbsoluteLocation=liberty road}
+- dial the nearest {@Places.PlaceName=autozone}
+- dial the number for {@Places.PlaceName=dominos} in {@Places.AbsoluteLocation=bayside}
+- dial the number for {@Places.PlaceName=old navy}
+- dial the number to the closest {@Places.PlaceType=pizza place}
+- place a call to {@Places.PlaceName=walmart} on {@Places.AbsoluteLocation=walton way}
+
+
+> # Entity definitions
+
+> !# @entity.inherits = name : Places.AbsoluteLocation; domain_name : Places; model_name : AbsoluteLocation
+
+@ ml Places.AbsoluteLocation
+
+> !# @entity.inherits = name : Places.Amenities; domain_name : Places; model_name : Amenities
+
+@ ml Places.Amenities
+
+> !# @entity.inherits = name : Places.Cuisine; domain_name : Places; model_name : Cuisine
+
+@ ml Places.Cuisine
+
+> !# @entity.inherits = name : Places.PlaceName; domain_name : Places; model_name : PlaceName
+
+@ ml Places.PlaceName
+
+> !# @entity.inherits = name : Places.PlaceType; domain_name : Places; model_name : PlaceType
+
+@ ml Places.PlaceType
+
+> !# @entity.inherits = name : Places.PriceRange; domain_name : Places; model_name : PriceRange
+
+@ ml Places.PriceRange
+
+> !# @entity.inherits = name : Places.Product; domain_name : Places; model_name : Product
+
+@ ml Places.Product
+
+> !# @entity.inherits = name : Places.Rating; domain_name : Places; model_name : Rating
+
+@ ml Places.Rating
+
+
+> # PREBUILT Entity definitions
+
+@ prebuilt datetimeV2
+
+@ prebuilt dimension
+
+
+> # Phrase list definitions
+
+
+> # List entities
+
+@ list Airport = 
+	- Paris :
+		- paris
+		- cdg
+	- London :
+		- london
+		- lhr
+	- Berlin :
+		- berlin
+		- txl
+	- New York :
+		- new york
+		- jfk
+	- Seattle :
+		- seattle
+		- sea
+
+
+@ list Places.MealType = 
+	- breakfast :
+	- brunch :
+	- dinner :
+	- lunch :
+	- supper :
+
+
+@ list Places.Nearby = 
+	- adjacent :
+	- around me :
+		- around here
+	- closest :
+	- in the area :
+		- in this area
+		- in my area
+	- local :
+	- near me :
+		- near here
+	- nearby :
+	- nearest :
+	- neighboring :
+
+
+@ list Places.OpenStatus = 
+	- close :
+		- closing
+		- closed
+	- open :
+		- opening
+	- operating :
+
+
+> # RegEx entities
+
+
+> # Composite entities
+
+@ composite From = [Airport]
+@ composite To = [Airport]

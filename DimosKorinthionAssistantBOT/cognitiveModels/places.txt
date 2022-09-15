@@ -1,0 +1,81 @@
+
+#places
+
+
+#buildings
+city hall
+
+#ΤΜΗΜΑΤΑ
+technical services department,technical services,ΤΕΧΝΙΚΕΣ ΥΠΗΡΕΣΙΣ
+urban planning department,urban department,city planning department,ΠΟΛΕΟΔΟΜΙΑ
+social welfare municipality department,social protection department, ΤΜΗΜΑ ΚΟΙΝΩΝΙΚΗΣ ΠΡΟΣΤΑΣΙΑΣ
+department of environment and civil protection,ΤΜΗΜΑ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΚΑΙ ΠΟΛΙΤΙΚΗΣ ΠΡΟΣΤΑΣΙΑΣ 
+department of environment and quality of life,ΤΜΗΜΑ ΠΕΡΙΒΑΛΛΟΝΤΟΣ ΚΑΙ ΠΟΙΟΤΗΤΑ ΖΩΗΣ
+department of clininless and recycling,waste and recycling management department,ΤΜΗΜΑ ΚΑΘΑΡΙΟΤΗΤΑΣ ΚΑΙ ΑΝΑΚΥΚΛΩΣΗΣ
+green department, TMHMA ΠΡΑΣΙΝΟΥ
+department of education and lifelong learning,ΤΜΗΜΑ ΠΑΙΔΕΙΑΣ ΚΑΙ ΔΙΑΒΙΟΥ ΜΑΘΗΣΗΣ
+supplies and services department, ΤΜΗΜΑ ΠΡΟΜΗΘΕΙΩΝ ΚΑΙ ΥΠΗΡΕΣΙΩΝ
+department of urban and municipal status,registry office, ΤΜΗΜΑ ΑΣΤΙΚΗΣ ΚΑΙ ΔΗΜΟΤΙΚΗΣ ΚΑΤΑΣΤΑΣΗΣ
+legality control department of constructions, ΤΜΗΜΑ ΕΛΕΓΧΟΥ ΝΟΜΙΜΟΤΗΤΑΣ ΚΑΤΑΣΚΕΥΩΝ
+technical projects and studies department, ΤΜΗΜΑ ΤΕΧΝΙΚΩΝ ΕΡΓΩΝ ΚΑΙ ΜΕΛΕΤΩΝ
+technical services protocol, urban planning protocol,ΠΡΩΤΟΚΟΛΛΟ ΤΕΧΝΙΚΩΝ ΥΠΗΡΕΣΙΩΝ
+city hall protocol,town hall protocol, ΠΡΩΤΟΚΟΛΛΟ ΔΗΜΟΥ
+revenue and municipal property department, revenue department, ΤΜΗΜΑ ΕΣΟΔΩΝ ΚΑΙ ΔΗΜΟΤΙΚΗΣ ΠΕΡΙΟΥΣΙΑΣ
+department of expenses,ΤΜΗΜΑ ΕΞΟΔΩΝ
+finance directorate services,department of finance, ΔΙΕΥΘΥΝΣΗ ΟΙΚΟΝΟΜΙΚΩΝ ΥΠΗΡΕΣΙΩΝ
+human management and resources department,ΤΜΗΜΑ ΔΙΑΧΕΙΡΙΣΗΣ ΑΝΘΡΩΠΙΝΩΝ ΠΟΡΩΝ
+department of trade and services,ΤΜΗΜΑ ΕΜΠΟΡΙΟΥ ΚΑΙ ΥΠΗΡΕΣΙΩΝ
+directorate of local development,ΔΙΕΥΘΥΝΣΗ ΤΟΠΙΚΗΣ ΑΝΑΠΤΥΞΗΣ
+department of culture and sports,ΤΜΗΜΑ ΠΟΛΙΤΙΣΜΟΥ ΚΑΙ ΑΘΛΗΤΙΣΜΟΥ
+
+#ΝΟΜΙΚΑ ΠΡΟΣΩΠΑ
+municipal water supply and sewerage company, ΔΗΜΟΤΙΚΗ ΕΠΙΧΕΙΡΗΣΗ ΥΔΡΕΥΣΗΣ ΚΑΙ ΑΠΟΧΕΤΕΥΣΗΣ
+Center for Culture Sports & Environment,  ΚΕΝΤΡΟ ΑΘΛΗΤΙΣΜΟΥ ΠΟΛΙΤΙΣΜΟΥ ΚΑΙ ΠΕΡΙΒΑΛΛΟΝΤΟΣ
+
+
+
+#services
+KEP,citizen service center
+Open Care Centers for the Elderly, KAPI
+
+
+#office
+mayor's office
+mayor's press office
+
+
+#museums
+Corinth Archaeological Museum,Linos Museum in Solomos, in Solomos,Ecclesiastical Museum of Corinth,Historical – Folklore Museum of Corinth
+
+#gallerys
+Art and Science gallery,  Stefani Observatory, Municipal Library and Media Lab
+
+#location
+corinth,korintos,lexaio,assos, kato assos, xiliomodi, baths of beautiful Helen
+Athikia, Almyri, Galataki,korfos, Angelokastro, Sofiko, Soligia
+Agionori, Ag. Vassiliou, Klenia, Koutala, Spathovouni, Stefani,Xiliomodi,kalamia beach,kantare beach,
+
+#communities
+
+ΔΗΜΟΤΙΚΗ ΕΝΟΤΗΤΑ ΑΣΣΟΥ-ΛΕΧΑΙΟΥ
+Community of Kato Assos
+Κοινότητα Kάτω Άσσου
+
+ΔΗΜΟΤΙΚΗ ΕΝΟΤΗΤΑ ΣΑΡΩΝΙΚΟΥ
+Athikia Community, Almyri Community, Galataki Community
+Κοινότητα Αθικίων,Κοινότητα Αλμυρής,Κοινότητα Γαλατακίου
+
+ΔΗΜΟΤΙΚΗ ΕΝΟΤΗΤΑ ΣΟΛΥΓΕΙΑΣ
+Κοινότητα Κόρφου, Κοινότητα Αγγελοκάστρου, κοινότητα Σοφικού, κοινότητα Σολυγιάς
+korfos Community, Angelokastro Community, Sofiko community, Soligia community
+
+ΔΗΜΟΤΙΚΗ ΕΝΟΤΗΤΑ ΤΕΝΕΑΣ
+Κονότητα Αγιονορίου,Κοινότητα Αγ. Βασιλείου,Κοινότητα Κλένιας,Κοινότητα Κουταλάς,Κοινότητα Σπαθοβουνίου,Κοινότητα Στεφανίου
+Community of Agionori, Community of Ag. Vassiliou, Klenia Community, Koutala Community, Spathovouni Community, Stefani Community,Xiliomodi Community
+
+
+
+
+
+
+

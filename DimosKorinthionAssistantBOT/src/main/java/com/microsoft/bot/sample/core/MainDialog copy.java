@@ -71,7 +71,8 @@ public class MainDialog extends ComponentDialog {
 
     /**
      * First step in the waterfall dialog. Prompts the user for a command. Currently, this expects a
-     * request, like "find the telephone number of revenue department" 
+     * booking request, like "book me a flight from Paris to Berlin on march 22" Note that the
+     * sample LUIS model will only recognize Paris, Berlin, New York and London as airport cities.
      *
      * @param stepContext A {@link WaterfallStepContext}
      * @return A {@link DialogTurnResult}
@@ -86,12 +87,12 @@ public class MainDialog extends ComponentDialog {
         }
 
         // Use the text provided in FinalStepAsync or the default if it is the first time.
-        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
-        //String weekLaterDate = LocalDateTime.now().plusDays(plusDayValue).format(formatter);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+        String weekLaterDate = LocalDateTime.now().plusDays(plusDayValue).format(formatter);
         String messageText = stepContext.getOptions() != null
             ? stepContext.getOptions().toString()
             : String.format("What can I help you with today?\n"
-                + "Say something like \"find the telephone number of revenue department");
+                + "Say something like \"Book a flight from Paris to Berlin on %s\"", weekLaterDate);
         Activity promptMessage = MessageFactory
             .text(messageText, messageText, InputHints.EXPECTING_INPUT);
         PromptOptions promptOptions = new PromptOptions();
@@ -100,18 +101,18 @@ public class MainDialog extends ComponentDialog {
     }
 
     /**
-     * Second step in the waterfall.  This will use LUIS to attempt to extract place name and place type,
-     * Then, it hands off to the bookingDialog child dialog to collect
-     * any remaining details depending on the place_type
+     * Second step in the waterfall.  This will use LUIS to attempt to extract the origin,
+     * destination and travel dates. Then, it hands off to the bookingDialog child dialog to collect
+     * any remaining details.
      *
      * @param stepContext A {@link WaterfallStepContext}
      * @return A {@link DialogTurnResult}
      */
     private CompletableFuture<DialogTurnResult> actStep(WaterfallStepContext stepContext) {
-        /*if (!luisRecognizer.isConfigured()) {
+        if (!luisRecognizer.isConfigured()) {
             // LUIS is not configured, we just run the BookingDialog path with an empty BookingDetailsInstance.
             return stepContext.beginDialog("BookingDialog", new BookingDetails());
-        }/ */
+        }
 
         // Call LUIS and gather any potential booking details. (Note the TurnContext has the response to the prompt.)
         return luisRecognizer.recognize(stepContext.getContext()).thenCompose(luisResult -> {
