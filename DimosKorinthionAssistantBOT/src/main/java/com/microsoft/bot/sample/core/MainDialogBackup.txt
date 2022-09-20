@@ -15,7 +15,6 @@ import com.microsoft.bot.dialogs.prompts.TextPrompt;
 import com.microsoft.bot.sample.data.model.Department;
 import com.microsoft.bot.sample.data.repository.DepartmentRepository;
 import com.microsoft.bot.sample.data.services.DepartmentService;
-import com.microsoft.bot.sample.data.services.MicrosoftTranslatorService;
 import com.microsoft.bot.schema.Activity;
 import com.microsoft.bot.schema.InputHints;
 import com.microsoft.recognizers.datatypes.timex.expression.TimexProperty;
@@ -34,11 +33,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * The class containing the main dialog for the sample.
  */
-public class MainDialog extends ComponentDialog {
+public class MainDialogBackup extends ComponentDialog {
 
     private final FlightBookingRecognizer luisRecognizer;
     private DepartmentService departmentService;
-    private MicrosoftTranslatorService translatorService;
     private final Integer plusDayValue = 7;
     
 
@@ -52,8 +50,8 @@ public class MainDialog extends ComponentDialog {
      * @param withLuisRecognizer The FlightBookingRecognizer object.
      * @param bookingDialog      The BookingDialog object with booking dialogs.
      */
-    public MainDialog(FlightBookingRecognizer withLuisRecognizer, DepartmentService departmentService, MicrosoftTranslatorService translatorService, BookingDialog bookingDialog) {
-        super("MainDialog");
+    public MainDialogBackup(FlightBookingRecognizer withLuisRecognizer, DepartmentService departmentService, BookingDialog bookingDialog) {
+        super("MainDialogBackup");
 
         this.luisRecognizer = withLuisRecognizer;
         this.departmentService = departmentService;
@@ -73,7 +71,8 @@ public class MainDialog extends ComponentDialog {
 
     /**
      * First step in the waterfall dialog. Prompts the user for a command. Currently, this expects a
-     * request, like "find the telephone number of revenue department" 
+     * booking request, like "book me a flight from Paris to Berlin on march 22" Note that the
+     * sample LUIS model will only recognize Paris, Berlin, New York and London as airport cities.
      *
      * @param stepContext A {@link WaterfallStepContext}
      * @return A {@link DialogTurnResult}
@@ -88,12 +87,12 @@ public class MainDialog extends ComponentDialog {
         }
 
         // Use the text provided in FinalStepAsync or the default if it is the first time.
-        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
-        //String weekLaterDate = LocalDateTime.now().plusDays(plusDayValue).format(formatter);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+        String weekLaterDate = LocalDateTime.now().plusDays(plusDayValue).format(formatter);
         String messageText = stepContext.getOptions() != null
             ? stepContext.getOptions().toString()
             : String.format("What can I help you with today?\n"
-                + "Say something like \"find the telephone number of revenue department");
+                + "Say something like \"Book a flight from Paris to Berlin on %s\"", weekLaterDate);
         Activity promptMessage = MessageFactory
             .text(messageText, messageText, InputHints.EXPECTING_INPUT);
         PromptOptions promptOptions = new PromptOptions();
@@ -102,18 +101,18 @@ public class MainDialog extends ComponentDialog {
     }
 
     /**
-     * Second step in the waterfall.  This will use LUIS to attempt to extract place name and place type,
-     * Then, it hands off to the bookingDialog child dialog to collect
-     * any remaining details depending on the place_type
+     * Second step in the waterfall.  This will use LUIS to attempt to extract the origin,
+     * destination and travel dates. Then, it hands off to the bookingDialog child dialog to collect
+     * any remaining details.
      *
      * @param stepContext A {@link WaterfallStepContext}
      * @return A {@link DialogTurnResult}
      */
     private CompletableFuture<DialogTurnResult> actStep(WaterfallStepContext stepContext) {
-        /*if (!luisRecognizer.isConfigured()) {
+        if (!luisRecognizer.isConfigured()) {
             // LUIS is not configured, we just run the BookingDialog path with an empty BookingDetailsInstance.
             return stepContext.beginDialog("BookingDialog", new BookingDetails());
-        }/ */
+        }
 
         // Call LUIS and gather any potential booking details. (Note the TurnContext has the response to the prompt.)
         return luisRecognizer.recognize(stepContext.getContext()).thenCompose(luisResult -> {
@@ -183,32 +182,20 @@ public class MainDialog extends ComponentDialog {
                         */
 
 
-                case "Places_GetPhoneNumber":
-                         // Extract the values for the composite entities from the LUIS result.
-                        ObjectNode objectPhoneNumberEntities = luisRecognizer.getPhoneNumberEntities(luisResult);
-    
-    
-                        String getPhoneNumberMessageText = "The Telephone Number Of "+objectPhoneNumberEntities.get("Places_PlaceName").asText() +" is 2741026523";
-                        Activity geFindAddressMessage = MessageFactory
-                            .text(
-                                getPhoneNumberMessageText, getPhoneNumberMessageText,
-                                InputHints.IGNORING_INPUT
-                            );
-                        return stepContext.getContext().sendActivity(geFindAddressMessage)
-                            .thenCompose(resourceResponse -> stepContext.next(null));  
 
                 case "Places_GetAddress":
                         // We haven't implemented the GetWeatherDialog so we just display a TODO message.
                          // Extract the values for the composite entities from the LUIS result.
-                        ObjectNode objectAddressEntities = luisRecognizer.getAddressEntities(luisResult);
+                        ObjectNode getAddressEntities = luisRecognizer.getAddressEntities(luisResult);
     
-                        String getAddressMessageText = "The Address Of "+objectAddressEntities.get("Places_PlaceName").asText() +" is Koliatsou 32";
-                        Activity getFindAddressMessage = MessageFactory
+    
+                        String getAddressMessageText = "TODO: Places_GetAddress flow here";
+                        Activity geFindAddressMessage = MessageFactory
                             .text(
                                 getAddressMessageText, getAddressMessageText,
                                 InputHints.IGNORING_INPUT
                             );
-                        return stepContext.getContext().sendActivity(getFindAddressMessage)
+                        return stepContext.getContext().sendActivity(geFindAddressMessage)
                             .thenCompose(resourceResponse -> stepContext.next(null));                        
 
                 case "GetWeather":

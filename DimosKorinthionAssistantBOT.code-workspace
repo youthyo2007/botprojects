@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "DimosKorinthionAssistantBOT"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive"
+	}
+}

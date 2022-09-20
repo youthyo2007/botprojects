@@ -13,6 +13,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 import com.microsoft.bot.builder.Bot;
 import com.microsoft.bot.builder.ConversationState;
+import com.microsoft.bot.builder.Storage;
 import com.microsoft.bot.builder.UserState;
 import com.microsoft.bot.integration.AdapterWithErrorHandler;
 import com.microsoft.bot.integration.BotFrameworkHttpAdapter;
@@ -20,6 +21,9 @@ import com.microsoft.bot.integration.Configuration;
 import com.microsoft.bot.integration.spring.BotController;
 import com.microsoft.bot.integration.spring.BotDependencyConfiguration;
 import com.microsoft.bot.sample.data.services.DepartmentService;
+import com.microsoft.bot.sample.data.services.MicrosoftTranslatorService;
+import com.microsoft.bot.sample.translation.MicrosoftTranslator;
+import com.microsoft.bot.sample.translation.TranslationMiddleware;
 
 /**
  * This is the starting point of the Sprint Boot Bot application.
@@ -49,6 +53,8 @@ public class Application extends BotDependencyConfiguration {
     @Autowired
     DepartmentService departmentService;
     
+    @Autowired
+    MicrosoftTranslatorService translatorService;
     
     /**
      * The start method.
@@ -70,17 +76,16 @@ public class Application extends BotDependencyConfiguration {
      * @return The Bot implementation for this application.
      */
     @Bean
-    public Bot getBot(
-        Configuration configuration,
-        UserState userState,
-        ConversationState conversationState
-    ) {
+    public Bot getBot(Configuration configuration, UserState userState,ConversationState conversationState ) {
+        
         FlightBookingRecognizer recognizer =  new FlightBookingRecognizer(configuration);
-        MainDialog dialog = new MainDialog(recognizer, departmentService,  new BookingDialog());
+        MainDialog dialog = new MainDialog(recognizer, departmentService,  translatorService, new BookingDialog());
         return new DialogAndWelcomeBot<>(conversationState, userState, dialog);
     }
 
-    /**
+
+
+  /**
      * Returns a custom Adapter that provides error handling.
      *
      * @param configuration The Configuration object to use.
@@ -88,7 +93,36 @@ public class Application extends BotDependencyConfiguration {
      */
     @Override
     public BotFrameworkHttpAdapter getBotFrameworkHttpAdaptor(Configuration configuration) {
-        return new AdapterWithErrorHandler(configuration);
+        Storage storage = this.getStorage();
+        ConversationState conversationState = this.getConversationState(storage);
+
+        BotFrameworkHttpAdapter adapter = new AdapterWithErrorHandler(configuration, conversationState);
+        TranslationMiddleware translationMiddleware = this.getTranslationMiddleware(configuration);
+        adapter.use(translationMiddleware);
+        return adapter;
+    }
+
+    /**
+     * Create the Microsoft Translator responsible for making calls to the Cognitive Services translation service.
+     * @param configuration The Configuration object to use.
+     * @return MicrosoftTranslator
+     */
+    @Bean
+    public MicrosoftTranslator getMicrosoftTranslator(Configuration configuration) {
+        return new MicrosoftTranslator(configuration);
+    }
+
+    /**
+     * Create the Translation Middleware that will be added to the middleware pipeline in the AdapterWithErrorHandler.
+     * @param configuration The Configuration object to use.
+     * @return TranslationMiddleware
+     */
+    @Bean
+    public TranslationMiddleware getTranslationMiddleware(Configuration configuration) {
+        Storage storage = this.getStorage();
+        UserState userState = this.getUserState(storage);
+        MicrosoftTranslator microsoftTranslator = this.getMicrosoftTranslator(configuration);
+        return new TranslationMiddleware(microsoftTranslator, userState);
     }
 }
 

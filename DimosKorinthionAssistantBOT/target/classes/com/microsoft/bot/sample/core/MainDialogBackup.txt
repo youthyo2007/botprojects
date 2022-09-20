@@ -33,7 +33,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * The class containing the main dialog for the sample.
  */
-public class MainDialog extends ComponentDialog {
+public class MainDialogBackup extends ComponentDialog {
 
     private final FlightBookingRecognizer luisRecognizer;
     private DepartmentService departmentService;
@@ -50,8 +50,8 @@ public class MainDialog extends ComponentDialog {
      * @param withLuisRecognizer The FlightBookingRecognizer object.
      * @param bookingDialog      The BookingDialog object with booking dialogs.
      */
-    public MainDialog(FlightBookingRecognizer withLuisRecognizer, DepartmentService departmentService, BookingDialog bookingDialog) {
-        super("MainDialog");
+    public MainDialogBackup(FlightBookingRecognizer withLuisRecognizer, DepartmentService departmentService, BookingDialog bookingDialog) {
+        super("MainDialogBackup");
 
         this.luisRecognizer = withLuisRecognizer;
         this.departmentService = departmentService;

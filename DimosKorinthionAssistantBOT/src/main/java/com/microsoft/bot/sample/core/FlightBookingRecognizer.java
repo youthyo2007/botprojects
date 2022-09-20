@@ -189,6 +189,31 @@ public class FlightBookingRecognizer implements Recognizer {
         return entitiesNode;
     }
 
+
+    public ObjectNode getPhoneNumberEntities(RecognizerResult result) {
+        String placesPlaceType = "", placesPlaceName = "", placesAbosulteLocation = ""; 
+        if (result.getEntities().get("$instance").get("Places_PlaceType") != null) {
+            placesPlaceType = result.getEntities().get("$instance").get("Places_PlaceType").get(0).get("text").asText();
+        }
+
+        if (result.getEntities().get("$instance").get("Places_PlaceName") != null) {
+            placesPlaceName = result.getEntities().get("$instance").get("Places_PlaceName").get(0).get("text").asText();
+        }
+
+        if (result.getEntities().get("$instance").get("Places_AbsoluteLocation") != null) {
+            placesAbosulteLocation = result.getEntities().get("$instance").get("Places_AbsoluteLocation").get(0).get("text").asText();
+        }
+
+     
+
+        ObjectMapper mapper = new ObjectMapper().findAndRegisterModules();
+        ObjectNode entitiesNode = mapper.createObjectNode();
+        entitiesNode.put("Places_PlaceType", placesPlaceType);
+        entitiesNode.put("Places_PlaceName", placesPlaceName);
+        entitiesNode.put("Places_AbsoluteLocation", placesAbosulteLocation);
+        
+        return entitiesNode;
+    }
     /**
      * This value will be a TIMEX. And we are only interested in a Date so grab the first result and
      * drop the Time part. TIMEX is a format that represents DateTime expressions that include some

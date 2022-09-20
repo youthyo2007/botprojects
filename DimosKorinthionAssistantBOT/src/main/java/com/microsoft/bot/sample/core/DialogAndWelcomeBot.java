@@ -60,7 +60,7 @@ public class DialogAndWelcomeBot<T extends Dialog> extends DialogBot {
                     // To learn more about Adaptive Cards, see https://aka.ms/msbot-adaptivecards
                     // for more details.
                     Attachment welcomeCard = createAdaptiveCardAttachment();
-                    Activity response = MessageFactory.attachment(welcomeCard, null, "Welcome to Bot Framework!", null);
+                    Activity response = MessageFactory.attachment(welcomeCard, null, "Welcome to Dimos Korinthion Bot!", null);
 
                     return turnContext.sendActivity(response).thenApply(sendResult -> {
                         return Dialog.run(getDialog(), turnContext,
