@@ -1,5 +1,6 @@
 package com.microsoft.bot.sample.data.services;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.bson.codecs.pojo.annotations.BsonProperty;
@@ -21,7 +22,7 @@ public class DepartmentService {
 
 // READ
     // 1. Show all the data
-    public void showAllItems() {
+    public void showAllDepartments() {
          
         departmentRepository.findAll().forEach(item -> System.out.println(getItemDetails(item)));
     }
@@ -43,6 +44,59 @@ public class DepartmentService {
 
     }
 
+   
+        public Department findItemByRegexpName(String regexp) {
+            List<Department> list = departmentRepository.findItemByRegexpName(regexp);
+            list.forEach(item -> System.out.println("Name: " + item.getDeptName() + ", Description: " + item.getDescription()));
+            return list.isEmpty() ? null : list.get(0);
+
+        }
+
+
+        public Department findItemByRegexpDescription(String regexp) {
+            List<Department> list = departmentRepository.findItemByRegexpDescription(regexp);
+            //list.forEach(item -> System.out.println("Name: " + item.getDeptName() + ", Description: " + item.getDescription()));
+            return list.isEmpty() ? null : list.get(0);
+        }
+
+    
+        public Department findItemByRegexpTags(String regexp) {
+
+            String[] splitted = regexp.split(" ");
+            System.out.println(splitted);
+            List<Department> list = null;
+
+            if(splitted!=null && splitted.length>=3)
+                list = departmentRepository.findItemByRegexpTagsThree(splitted[0]!=null ? splitted[0] : null, splitted[1]!=null ? splitted[1] : null,splitted[2]!=null ? splitted[2] : null);
+            else if(splitted!=null && splitted.length==2)
+                list = departmentRepository.findItemByRegexpTagsTwo(splitted[0]!=null ? splitted[0] : null, splitted[1]!=null ? splitted[1] : null);
+                else if(splitted!=null && splitted.length==1)
+                list = departmentRepository.findItemByRegexpTagsOne(splitted[0]!=null ? splitted[0] : null);
+
+
+            //list.forEach(item -> System.out.println("Name: " + item.getDeptName() + ", Description: " + item.getDescription()));
+            return (list==null ||  list.isEmpty()) ? null : list.get(0);
+        }
+
+  
+        public Department findItemByRegexpTagsAndCondition(String regexp) {
+
+            String[] splitted = regexp.split(" ");
+            System.out.println(Arrays.toString(splitted));
+            List<Department> list = null;
+
+            if(splitted!=null && splitted.length>=3)
+                list = departmentRepository.findItemByRegexpTagsAndConditionThree(splitted[0]!=null ? splitted[0] : null, splitted[1]!=null ? splitted[1] : null,splitted[2]!=null ? splitted[2] : null);
+            else if(splitted!=null && splitted.length==2)
+                list = departmentRepository.findItemByRegexpTagsAndConditionTwo(splitted[0]!=null ? splitted[0] : null, splitted[1]!=null ? splitted[1] : null);
+                else if(splitted!=null && splitted.length==1)
+                list = departmentRepository.findItemByRegexpTagsAndConditionOne(splitted[0]!=null ? splitted[0] : null);
+
+
+            //list.forEach(item -> System.out.println("Name: " + item.getDeptName() + ", Description: " + item.getDescription()));
+            return (list==null ||  list.isEmpty()) ? null : list.get(0);
+        }
+        
 
     public String getItemDetails(Department item) {
 

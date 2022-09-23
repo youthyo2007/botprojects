@@ -65,22 +65,30 @@ public class MicrosoftTranslator {
      * @param targetLocale targetLocale Two character language code, e.g. "en", "es".
      * @return The first translation result
      */
-    public CompletableFuture<String> translate(String text, String targetLocale) {
+    public CompletableFuture<String> translate(String text, String fromLocale, String targetLocale) {
         return CompletableFuture.supplyAsync(() -> {
             // From Cognitive Services translation documentation:
             // https://docs.microsoft.com/en-us/azure/cognitive-services/Translator/quickstart-translator?tabs=java
             String body = String.format("[{ \"Text\": \"%s\" }]", text);
 
-            String uri = new StringBuilder(MicrosoftTranslator.HOST)
-                .append(MicrosoftTranslator.TRANSLATE_PATH)
-                .append(MicrosoftTranslator.URI_PARAMS)
-                .append(targetLocale).toString();
+            StringBuilder uri = new StringBuilder(MicrosoftTranslator.HOST).append(MicrosoftTranslator.TRANSLATE_PATH);
+            
+            /*if (fromLocale!=null) {
+                    uri.append("&from="+fromLocale);
+            }*/
+
+            uri.append(MicrosoftTranslator.URI_PARAMS).append(targetLocale);
+
+            
+             
+        
+
 
             RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), body);
 
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
-                .url(uri)
+                .url(uri.toString())
                 .header("Ocp-Apim-Subscription-Key", key)
                 .header("Ocp-Apim-Subscription-Region", location)
                 .post(requestBody)

@@ -30,15 +30,32 @@ public class FlightBookingRecognizer implements Recognizer {
      * @param configuration The Configuration object to use.
      */
     public FlightBookingRecognizer(Configuration configuration) {
-        Boolean luisIsConfigured = StringUtils.isNotBlank(configuration.getProperty("LuisAppId"))
+            /* 
+            Boolean luisIsConfigured = StringUtils.isNotBlank(configuration.getProperty("LuisAppId"))
             && StringUtils.isNotBlank(configuration.getProperty("LuisAPIKey"))
             && StringUtils.isNotBlank(configuration.getProperty("LuisAPIHostName"));
-        if (luisIsConfigured) {
+            */
+        
+        
+            LuisApplication luisApplication = new LuisApplication("e62c2c02-7738-4aa2-bb57-a30a213e696f",
+                "e263dc76fee04758a228deebd23e8d50",
+                String.format("https://%s", new String("languageunderstandingresourcegs-authoring.cognitiveservices.azure.com"))
+            );
+
+
+        
+        //if (luisIsConfigured) {
+            
+            
+            /* 
             LuisApplication luisApplication = new LuisApplication(
                 configuration.getProperty("LuisAppId"),
                 configuration.getProperty("LuisAPIKey"),
                 String.format("https://%s", configuration.getProperty("LuisAPIHostName"))
             );
+            */
+
+
             // Set the recognizer options depending on which endpoint version you want to use.
             // More details can be found in
             // https://docs.microsoft.com/en-gb/azure/cognitive-services/luis/luis-migration-api-v3
@@ -46,7 +63,7 @@ public class FlightBookingRecognizer implements Recognizer {
             recognizerOptions.setIncludeInstanceData(true);
 
             this.recognizer = new LuisRecognizer(recognizerOptions);
-        }
+        //}
     }
 
     /**

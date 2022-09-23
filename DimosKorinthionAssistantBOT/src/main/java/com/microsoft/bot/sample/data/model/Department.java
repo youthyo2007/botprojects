@@ -1,6 +1,6 @@
 package com.microsoft.bot.sample.data.model;
 
-import org.bson.codecs.pojo.annotations.BsonProperty;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,6 +12,15 @@ public class Department {
         
         private String DeptName;
         private String Description;
+        private Contact Contact;
+
+        public Contact getContact() {
+            return this.Contact;
+        }
+
+        public void setContact(Contact Contact) {
+            this.Contact = Contact;
+        };
 
         public String getDeptName() {
             return this.DeptName;

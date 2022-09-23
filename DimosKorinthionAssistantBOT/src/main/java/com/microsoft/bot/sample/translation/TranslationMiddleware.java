@@ -62,7 +62,7 @@ public class TranslationMiddleware implements Middleware  {
             if (translate) {
                 if (turnContext.getActivity().isType(ActivityTypes.MESSAGE)) {
                     return this.translator.translate(
-                        turnContext.getActivity().getText(),
+                        turnContext.getActivity().getText(),null,
                         TranslationSettings.DEFAULT_LANGUAGE)
                     .thenApply(text -> {
                         turnContext.getActivity().setText(text);
@@ -75,12 +75,13 @@ public class TranslationMiddleware implements Middleware  {
             turnContext.onSendActivities((newContext, activities, nextSend) -> {
                 return this.languageStateProperty.get(turnContext, () -> TranslationSettings.DEFAULT_LANGUAGE).thenCompose(userLanguage -> {
                     Boolean shouldTranslate = !userLanguage.equals(TranslationSettings.DEFAULT_LANGUAGE);
+                    //Boolean shouldTranslate = true;
 
                     // Translate messages sent to the user to user language
                     if (shouldTranslate) {
                         ArrayList<CompletableFuture<Void>> tasks = new ArrayList<CompletableFuture<Void>>();
                         for (Activity activity : activities.stream().filter(a -> a.getType().equals(ActivityTypes.MESSAGE)).collect(Collectors.toList())) {
-                            tasks.add(this.translateMessageActivity(activity, userLanguage));
+                            tasks.add(this.translateMessageActivity(activity, TranslationSettings.DEFAULT_LANGUAGE,userLanguage));
                         }
 
                         if (!Arrays.asList(tasks).isEmpty()) {
@@ -95,11 +96,11 @@ public class TranslationMiddleware implements Middleware  {
             turnContext.onUpdateActivity((newContext, activity, nextUpdate) -> {
                 return this.languageStateProperty.get(turnContext, () -> TranslationSettings.DEFAULT_LANGUAGE).thenCompose(userLanguage -> {
                     Boolean shouldTranslate = !userLanguage.equals(TranslationSettings.DEFAULT_LANGUAGE);
-
+                    //Boolean shouldTranslate = true;
                     // Translate messages sent to the user to user language
                     if (activity.getType().equals(ActivityTypes.MESSAGE)) {
                         if (shouldTranslate) {
-                            this.translateMessageActivity(activity, userLanguage);
+                            this.translateMessageActivity(activity, TranslationSettings.DEFAULT_LANGUAGE,userLanguage);
                         }
                     }
 
@@ -111,9 +112,9 @@ public class TranslationMiddleware implements Middleware  {
         });
     }
 
-    private CompletableFuture<Void> translateMessageActivity(Activity activity, String targetLocale) {
+    private CompletableFuture<Void> translateMessageActivity(Activity activity, String fromLocale, String targetLocale) {
         if (activity.getType().equals(ActivityTypes.MESSAGE)) {
-            return this.translator.translate(activity.getText(), targetLocale).thenAccept(text -> {
+            return this.translator.translate(activity.getText(), fromLocale, targetLocale).thenAccept(text -> {
                 activity.setText(text);
             });
         }

@@ -188,8 +188,24 @@ public class MainDialog extends ComponentDialog {
                         ObjectNode objectPhoneNumberEntities = luisRecognizer.getPhoneNumberEntities(luisResult);
     
     
-                        String getPhoneNumberMessageText = "The Telephone Number Of "+objectPhoneNumberEntities.get("Places_PlaceName").asText() +" is 2741026523";
-                        Activity geFindAddressMessage = MessageFactory
+                        Department department = new Department("id", "DeptName");
+                        try {
+                            //department = departmentService.findItemByRegexpDescription(objectPhoneNumberEntities.get("Places_PlaceName").asText());
+                            department = departmentService.findItemByRegexpTagsAndCondition(objectPhoneNumberEntities.get("Places_PlaceName").asText());
+                            System.out.println("Found MongoDB Object:"+department.getDeptName());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        
+
+                        String getPhoneNumberMessageText = "Sorry, I didn't get that. Please try asking in a different way";
+                        
+                        if (department!=null)
+                            //String getPhoneNumberMessageText = "The Telephone Number Of <mstrans:dictionary translation=\""+department.getDescription()+"\">"+"word to be excluded</mstrans:dictionary> is"+department.getContact().getPhone1()+","+department.getContact().getPhone2();
+                            getPhoneNumberMessageText = "The telephone number of "+department.getDescription()+" is "+department.getContact().getPhone1()+","+department.getContact().getPhone2();
+                            
+                            
+                            Activity geFindAddressMessage = MessageFactory
                             .text(
                                 getPhoneNumberMessageText, getPhoneNumberMessageText,
                                 InputHints.IGNORING_INPUT
